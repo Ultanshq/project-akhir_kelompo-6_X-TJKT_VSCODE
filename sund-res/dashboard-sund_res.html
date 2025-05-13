@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sund Resto - Dashboard</title>
+    <link rel="stylesheet" href="./dashboard/css/dashboardreal.css" />
+  </head>
+  <body>
+    <div class="overlay"></div>
+
+    <nav class="navbar">
+      <div class="navbar-left">
+        <a href="./dashboard-sund_res.html">
+          <img src="./bahan-navbar/logo.png" alt="Profile" />
+        </a>
+      </div>
+      <div class="navbar-right">
+        <input type="text" id="search-box" placeholder="Cari makanan..." />
+        <img src="./bahan-navbar/search.png" alt="Search" id="search-icon" />
+        <a href="./keranjang.html">
+          <img src="./bahan-navbar/keranjang.png" alt="Profile" />
+        </a>
+        <a href="./prolog-cowo.html">
+          <img src="./bahan-navbar/profil.png" alt="Profile" />
+        </a>
+        <img src="./bahan-navbar/burger.png" alt="Menu" id="menu-icon" />
+      </div>
+
+      <div class="dropdown" id="dropdown">
+        <a href="./dashboard-belum-login.html">Beranda</a>
+        <a href="../sund-res/about.html">Tentang Kami</a>
+        <a href="#">Layanan</a>
+        <a href="#">Kontak</a>
+      </div>
+    </nav>
+
+    <div class="backgr">
+      <h2>Pilih Makanan Favoritmu</h2>
+      <div class="kotak-backgr">
+        <div class="kotak-mknn" onclick="location.href='pesan.html'">
+          <img
+            src="./dashboard/makanan-minuman/Nasi Goreng.jpg"
+            alt="Nasi Goreng"
+          />
+          <div class="card-content">
+            <h3>Nasi Goreng</h3>
+            <p>Rating: 4.8</p>
+            <p class="harga">Rp 25.000</p>
+            <button onclick="location.href='pesan.html'">Pesan</button>
+          </div>
+        </div>
+        <div class="kotak-mknn" onclick="location.href='pesan.html'">
+          <img
+            src="./dashboard/makanan-minuman/Lalapan Enak!.jpg"
+            alt="Pecel Lele"
+          />
+          <div class="card-content">
+            <h3>Pecel Lele</h3>
+            <p>Rating: 4.9</p>
+            <p class="harga">Rp 20.000</p>
+            <button onclick="location.href='pesan.html'">Pesan</button>
+          </div>
+        </div>
+        <div class="kotak-mknn" onclick="location.href='pesan.html'">
+          <img
+            src="./dashboard/makanan-minuman/How to Make a Milkshake - Easy Recipe Formula - Dessert for Two.jpg"
+            alt="Milk Shake"
+          />
+          <div class="card-content">
+            <h3>Milk Shake</h3>
+            <p>Rating: 4.8</p>
+            <p class="harga">Rp 15.000</p>
+            <button onclick="location.href='pesan.html'">Pesan</button>
+          </div>
+        </div>
+        <div class="kotak-mknn" onclick="location.href='pesan.html'">
+          <img
+            src="./dashboard/makanan-minuman/Resep AYAM BAKAR KECAP Pak Sahak oleh dapurVY.jpg"
+            alt="Ayam Bakar"
+          />
+          <div class="card-content">
+            <h3>Ayam Bakar</h3>
+            <p>Rating: 4.7</p>
+            <p class="harga">Rp 30.000</p>
+            <button onclick="location.href='pesan.html'">Pesan</button>
+          </div>
+        </div>
+        <div class="kotak-mknn" onclick="location.href='pesan.html'">
+          <img src="./dashboard/makanan-minuman/te.jpg" alt="Teh Manis" />
+          <div class="card-content">
+            <h3>Teh Manis Dingin</h3>
+            <p>Rating: 4.9</p>
+            <p class="harga">Rp 10.000</p>
+            <button onclick="location.href='pesan.html'">Pesan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/dasl.js"></script>
+</html>

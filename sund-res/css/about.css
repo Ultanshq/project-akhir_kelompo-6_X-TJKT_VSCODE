@@ -1,0 +1,88 @@
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      color: #4b2e1e;
+    }
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #cc6e30;
+    }
+    .highlight {
+      background-color: #ffe0b3;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    footer {
+      background-color: #4b2e1e;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    /* Custom style for your navbar */
+.navbar {
+  background-color: #2b1f14; /* warna gelap hangat */
+  color: white;
+  padding: 20px 40px; /* ukuran navbar lebih besar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-left img {
+  height: 45px; /* lebih besar */
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.navbar-right img {
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.navbar-right img:hover {
+  transform: scale(1.1);
+}
+
+.dropdown {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #2b1f14;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  width: 200px;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.dropdown a {
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s, padding-left 0.3s;
+}
+
+.dropdown a:hover {
+  background-color: rgba(255, 165, 0, 0.1); /* efek hover oren soft */
+  padding-left: 30px;
+}
