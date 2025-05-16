@@ -11,15 +11,15 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background: url("./Foto\ Ramen.jpg") no-repeat center center/cover;
+  background: url("./Foto Ramen.jpg") no-repeat center center/cover;
   background-attachment: fixed;
   min-height: 100vh;
   color: white;
 }
 .navbar {
-  background-color: #2b1f14; /* warna gelap hangat */
+  background-color: #2b1f14;
   color: white;
-  padding: 20px 40px; /* ukuran navbar lebih besar */
+  padding: 20px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,24 +27,29 @@ body {
   width: 100%;
   top: 0;
   z-index: 1000;
+  flex-wrap: wrap; /* agar tidak pecah di mobile */
 }
-
 .navbar-left img {
-  height: 45px; /* lebih besar */
+  height: 45px;
 }
-
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 25px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
-
+.navbar-right input[type="text"] {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  width: 180px;
+}
 .navbar-right img {
   height: 30px;
   cursor: pointer;
   transition: transform 0.2s;
 }
-
 .navbar-right img:hover {
   transform: scale(1.1);
 }
@@ -63,7 +68,6 @@ body {
   animation: fadeIn 0.3s ease-in-out;
   z-index: 999;
 }
-
 .dropdown a {
   padding: 14px 20px;
   text-decoration: none;
@@ -71,9 +75,8 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: background 0.3s, padding-left 0.3s;
 }
-
 .dropdown a:hover {
-  background-color: rgba(255, 165, 0, 0.1); /* efek hover oren soft */
+  background-color: rgba(255, 165, 0, 0.1);
   padding-left: 30px;
 }
 
@@ -106,6 +109,8 @@ body {
   flex-direction: column;
   align-items: center;
   max-width: 100%;
+  padding: 10px;
+  text-align: center;
 }
 .kotak-mknn:hover {
   transform: translateY(-4px);
@@ -116,10 +121,6 @@ body {
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
-.kotak-backgr {
-  padding: 8px;
-  text-align: center;
-}
 .kotak-backgr h3 {
   font-size: 14px;
   margin-bottom: 4px;
@@ -129,19 +130,12 @@ body {
   font-size: 11px;
   color: #ccc;
 }
-
-.kotak-mknn {
-  padding: 10px;
-  text-align: center;
-}
-
 .harga {
   font-size: 1.2em;
   color: #ff6347;
   font-weight: bold;
   margin: 10px 0;
 }
-
 button {
   background-color: #28a745;
   color: white;
@@ -152,7 +146,41 @@ button {
   border-radius: 5px;
   transition: background-color 0.3s;
 }
-
 button:hover {
   background-color: #218838;
+}
+
+/* ✅ Tambahan: Responsif untuk mobile */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+  .navbar-left img {
+    height: 40px;
+  }
+  .navbar-right {
+    gap: 10px;
+  }
+  .navbar-right input[type="text"] {
+    width: 100px;
+    font-size: 0.8em;
+    padding: 4px 8px;
+  }
+  .navbar-right img {
+    height: 24px;
+  }
+  .backgr h2 {
+    font-size: 20px;
+  }
+  .kotak-backgr {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+  }
+  .harga {
+    font-size: 1em;
+  }
+  button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
 }
