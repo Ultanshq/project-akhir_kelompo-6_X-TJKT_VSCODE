@@ -70,68 +70,112 @@ body {
   padding-left: 30px;
 }
 
+/* Container utama profil */
+.profile-card {
+  max-width: 450px;
+  background-color: #fff3d1;
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0 4px 12px rgba(122, 79, 1, 0.3);
+  margin-bottom: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #3a2c20;
+}
 
-    .container {
-      padding: 30px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    section {
-      background: #fff;
-      margin-bottom: 30px;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    h2 {
-      margin-bottom: 15px;
-      color: #689F38;
-    }
-    .profile-info {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-        .profile-pic {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #8bc34a;
-      display: block;
-      margin: 0 auto 20px auto;
-    }
-    .info-item {
-      margin-bottom: 15px;
-    }
-    .info-item label {
-      font-weight: bold;
-      color: #555;
-      display: block;
-    }
-    .info-item span {
-      display: inline-block;
-      margin-top: 5px;
-    }
-    .info-item button {
-      margin-left: 10px;
-      font-size: 12px;
-      padding: 4px 8px;
-      background-color: #8bc34a;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      cursor: pointer;
-    }
-    .info-item input {
-      margin-top: 5px;
-      width: 100%;
-      padding: 6px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    @media screen and (max-width: 768px) {
-  
+/* Foto profil */
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #7a4f01;
+  display: block;
+  margin: 0 auto 25px auto;
+  box-shadow: 0 0 10px #ffd166aa;
+}
+
+/* Container setiap info item */
+.info-item {
+  display: grid;
+  grid-template-columns: 100px auto 70px;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 10px;
+}
+
+/* Label */
+.info-item label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #7a4f01;
+}
+
+/* Nilai info */
+.info-item span {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Tombol ubah */
+.info-item button {
+  background-color: #ffd166;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-weight: 600;
+  color: #7a4f01;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.info-item button:hover {
+  background-color: #f2b705;
+}
+
+/* Section Riwayat & Notifikasi */
+.history, .notifications {
+  max-width: 600px;
+  background-color: #fff8f0;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(122, 79, 1, 0.15);
+  margin-bottom: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #3a2c20;
+}
+
+/* Judul section */
+.history h2, .notifications h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #7a4f01;
+  padding-bottom: 5px;
+}
+
+/* List */
+.history ul, .notifications ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Item list */
+.history ul li, .notifications ul li {
+  background-color: #fff3d1;
+  padding: 12px 18px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 3px rgba(122, 79, 1, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.history ul li:hover, .notifications ul li:hover {
+  background-color: #ffd166cc;
+  cursor: default;
+}
+
+   @media screen and (max-width: 768px) {
 .navbar {
     padding: 10px 20px;
   }
@@ -151,3 +195,6 @@ body {
   }
   
 }
+
+
+

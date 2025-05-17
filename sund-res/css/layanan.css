@@ -143,23 +143,36 @@ form {
     background-color: #e74c3c; /* Ubah warna saat hover */
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 
-    .navbar-right {
-        margin-top: 10px;
-    }
+@media (max-width: 768px) {
+  
+  
+.navbar {
+    padding: 10px 20px;
+  }
+  .navbar-left img {
+    height: 40px;
+  }
+  .navbar-right {
+    gap: 10px;
+  }
+  .navbar-right input[type="text"] {
+    width: 100px;
+    font-size: 0.8em;
+    padding: 4px 8px;
+  }
+  .navbar-right img {
+    height: 24px;
+  }
+  
+
 
     .map {
-        height: 300px; /* Adjust map height for smaller screens */
+        height: 300px; 
     }
 
     form {
-               width: 90%; /* Full width on smaller screens */
+               width: 90%; 
     }
 }
 
