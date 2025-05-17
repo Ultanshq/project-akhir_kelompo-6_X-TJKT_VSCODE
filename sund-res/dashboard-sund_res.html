@@ -1,103 +1,239 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sund Resto - Dashboard</title>
-    <link rel="stylesheet" href="./dashboard/css/dashboardreal.css" />
-  </head>
-  <body>
-    <div class="overlay"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sund Resto - Dashboard</title>
+  <link rel="stylesheet" href="./dashboard/css/dashboardreal.css">
+</head>
+<body>
+  <div class="overlay"></div>
 
-    <nav class="navbar">
-      <div class="navbar-left">
-        <a href="./dashboard-sund_res.html">
-          <img src="./bahan-navbar/logo.png" alt="Profile" />
-        </a>
-      </div>
-      <div class="navbar-right">
-        <input type="text" id="search-box" placeholder="Cari makanan..." />
-        <img src="./bahan-navbar/search.png" alt="Search" id="search-icon" />
-        <a href="./keranjang.html">
-          <img src="./bahan-navbar/keranjang.png" alt="Profile" />
-        </a>
-        <a href="./prolog-cowo.html">
-          <img src="./bahan-navbar/profil.png" alt="Profile" />
-        </a>
-        <img src="./bahan-navbar/burger.png" alt="Menu" id="menu-icon" />
-      </div>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="./dashboard-sund_res.html">
+        <img src="./bahan-navbar/logo.png" alt="Profile" />
+      </a>
+    </div>
+    <div class="navbar-right">
+      <input type="text" id="search-box" placeholder="Cari makanan..." />
+      <img src="./bahan-navbar/search.png" alt="Search" id="search-icon" />
+      <a href="./keranjang.html">
+        <img src="./bahan-navbar/keranjang.png" alt="Profile" />
+      </a>
+      <a href="./prolog-cowo.html">
+        <img src="./bahan-navbar/profil.png" alt="Profile" />
+      </a>
+      <img src="./bahan-navbar/burger.png" alt="Menu" id="menu-icon" />
+    </div>
 
-      <div class="dropdown" id="dropdown">
-        <a href="./dashboard-belum-login.html">Beranda</a>
-        <a href="../sund-res/ttg-dlog.html">Tentang Kami</a>
-        <a href="#">Layanan</a>
-        <a href="./pengaturan.html">Pengaturan</a>
-        <a href="./landing-page.html">Keluar</a>
-      </div>
-    </nav>
+    <div class="dropdown" id="dropdown">
+      <a href="./dashboard-sund_res.html">Beranda</a>
+      <a href="../sund-res/ttg-dlog.html">Tentang Kami</a>
+      <a href="layanan.html">Layanan</a>
+      <a href="#">Pengaturan</a>
+      <a href="landing-page.html">Keluar</a>
+    </div>
+  </nav>
 
-    <div class="backgr">
-      <h2>Pilih Makanan Favoritmu</h2>
-      <div class="kotak-backgr">
-        <div class="kotak-mknn" onclick="location.href='pesan.html'">
-          <img
-            src="./dashboard/makanan-minuman/Nasi Goreng.jpg"
-            alt="Nasi Goreng"
-          />
-          <div class="card-content">
-            <h3>Nasi Goreng</h3>
-            <p>Rating: 4.8</p>
-            <p class="harga">Rp 25.000</p>
-            <button onclick="location.href='pesan.html'">Pesan</button>
-          </div>
+  <!-- Banner Slider -->
+  <section class="banner-slider">
+    <div class="slide active">
+        <img src="./dashboard/makanan-minuman/Nasi Goreng.jpg" alt="Banner 1" />
+        <div class="banner-text">
+            <h1>Selamat Datang di Sund Resto</h1>
+            <p>Rasakan sensasi makanan lezat kami</p>
         </div>
-        <div class="kotak-mknn" onclick="location.href='pesan.html'">
-          <img
-            src="./dashboard/makanan-minuman/Lalapan Enak!.jpg"
-            alt="Pecel Lele"
-          />
-          <div class="card-content">
-            <h3>Pecel Lele</h3>
-            <p>Rating: 4.9</p>
-            <p class="harga">Rp 20.000</p>
-            <button onclick="location.href='pesan.html'">Pesan</button>
-          </div>
+    </div>
+    <div class="slide">
+        <img src="./css/img/tom sushi🍣.jpg" alt="Banner 2" />
+        <div class="banner-text">
+            <h1>Paket Hemat untuk Keluarga</h1>
+            <p>Pilih paket spesial dengan harga terbaik</p>
         </div>
-        <div class="kotak-mknn" onclick="location.href='pesan.html'">
-          <img
-            src="./dashboard/makanan-minuman/How to Make a Milkshake - Easy Recipe Formula - Dessert for Two.jpg"
-            alt="Milk Shake"
-          />
-          <div class="card-content">
-            <h3>Milk Shake</h3>
-            <p>Rating: 4.8</p>
-            <p class="harga">Rp 15.000</p>
-            <button onclick="location.href='pesan.html'">Pesan</button>
-          </div>
+    </div>
+    <div class="slide">
+        <img src="./dashboard/makanan-minuman/Lalapan Enak!.jpg" alt="Banner 3" />
+        <div class="banner-text">
+            <h1>Best Seller Favorit Pelanggan</h1>
+            <p>Cicipi menu yang paling banyak diminati</p>
         </div>
-        <div class="kotak-mknn" onclick="location.href='pesan.html'">
-          <img
-            src="./dashboard/makanan-minuman/Resep AYAM BAKAR KECAP Pak Sahak oleh dapurVY.jpg"
-            alt="Ayam Bakar"
-          />
-          <div class="card-content">
-            <h3>Ayam Bakar</h3>
-            <p>Rating: 4.7</p>
-            <p class="harga">Rp 30.000</p>
-            <button onclick="location.href='pesan.html'">Pesan</button>
-          </div>
-        </div>
-        <div class="kotak-mknn" onclick="location.href='pesan.html'">
-          <img src="./dashboard/makanan-minuman/te.jpg" alt="Teh Manis" />
-          <div class="card-content">
-            <h3>Teh Manis Dingin</h3>
-            <p>Rating: 4.9</p>
-            <p class="harga">Rp 10.000</p>
-            <button onclick="location.href='pesan.html'">Pesan</button>
-          </div>
-        </div>
+    </div>
+    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+</section>
+    <!-- Navigasi slider bisa ditambah di JS -->
+  </section>
+
+  <!-- Section Menu Makanan dengan scroll horizontal -->
+  <section class="horizontal-section" id="menu-makanan">
+    <h2>Menu Makanan</h2>
+    <div class="scroll-container">
+      <!-- Contoh item makanan -->
+      <div class="card" onclick="location.href='pesan.html'">
+        <img src="./dashboard/makanan-minuman/Nasi Goreng.jpg" alt="Nasi Goreng" />
+        <h3>Nasi Goreng</h3>
+        <p>Rating: 4.8</p>
+      </div>
+      <div class="card" onclick="location.href='pesan.html'">
+        <img src="./dashboard/makanan-minuman/Lalapan Enak!.jpg" alt="Pecel Lele" />
+        <h3>Pecel Lele</h3>
+        <p>Rating: 4.9</p>
+      </div>
+      <div class="card" onclick="location.href='pesan.html'">
+        <img src="./dashboard/makanan-minuman/How to Make a Milkshake - Easy Recipe Formula - Dessert for Two.jpg" alt="Milk Shake" />
+        <h3>Milk Shake</h3>
+        <p>Rating: 4.8</p>
+      </div>
+      <div class="card" onclick="location.href='pesan.html'">
+        <img src="./dashboard/makanan-minuman/Resep AYAM BAKAR KECAP Pak Sahak oleh dapurVY.jpg" alt="Ayam Bakar" />
+        <h3>Ayam Bakar</h3>
+        <p>Rating: 4.7</p>
+      </div>
+      <div class="card" onclick="location.href='pesan.html'">
+        <img src="./dashboard/makanan-minuman/te.jpg" alt="Teh Manis" />
+        <h3>Teh Manis Dingin</h3>
+        <p>Rating: 4.9</p>
       </div>
     </div>
-  </body>
-  <script src="./js/dasl.js"></script>
+  </section>
+
+  <!-- Section Paket Makanan dengan scroll horizontal -->
+  <section class="horizontal-section" id="paket-makanan">
+    <h2>Paket Makanan</h2>
+    <div class="scroll-container">
+      <!-- Contoh paket -->
+      <div class="card" onclick="location.href='pesan.html'">
+        <img src="./dashboard/makanan-minuman/Resep AYAM BAKAR KECAP Pak Sahak oleh dapurVY.jpg" alt="Paket Hemat 1" />
+        <h3>Paket Hemat 1</h3>
+        <p>Isi: Nasi Goreng + Teh Manis</p>
+        <p class="harga">Rp 30.000</p>
+      </div>
+      <div class="card" onclick="location.href='pesan.html'">
+        <img src="./dashboard/makanan-minuman/Nasi Goreng.jpg" alt="Paket Hemat 2" />
+        <h3>Paket Hemat 2</h3>
+        <p>Isi: Pecel Lele + Es Jeruk</p>
+        <p class="harga">Rp 35.000</p>
+      </div>
+      <div class="card" onclick="location.href='pesan.html'">
+        <img src="./dashboard/makanan-minuman/te.jpg" alt="Paket Hemat 3" />
+        <h3>Paket Hemat 3</h3>
+        <p>Isi: Ayam Bakar + Es Teh</p>
+        <p class="harga">Rp 40.000</p>
+      </div>
+      <!-- Tambah paket sesuai kebutuhan -->
+    </div>
+  </section>
+
+  <!-- Section Best Seller dengan scroll horizontal -->
+  <section class="horizontal-section" id="best-seller">
+    <h2>Best Seller</h2>
+    <div class="scroll-container">
+      <!-- Contoh best seller -->
+      <div class="card" onclick="location.href='pesan.html'">
+        <img src="./dashboard/makanan-minuman/Nasi Goreng.jpg" alt="Sate Ayam" />
+        <h3>Sate Ayam</h3>
+        <p>Rating: 5.0</p>
+        <p class="harga">Rp 25.000</p>
+      </div>
+      <div class="card" onclick="location.href='pesan.html'">
+        <img src="./dashboard/makanan-minuman/How to Make a Milkshake - Easy Recipe Formula - Dessert for Two.jpg" alt="Mie Goreng" />
+        <h3>Mie Goreng</h3>
+        <p>Rating: 4.9</p>
+        <p class="harga">Rp 20.000</p>
+      </div>
+      <div class="card" onclick="location.href='pesan.html'">
+        <img src="./dashboard/makanan-minuman/te.jpg" alt="Es Teh Manis" />
+        <h3>Es Teh Manis</h3>
+        <p>Rating: 4.8</p>
+        <p class="harga">Rp 10.000</p>
+      </div>
+      <!-- Tambah best seller sesuai kebutuhan -->
+    </div>
+  </section>
+
+  <!-- Footer Kontak -->
+  <footer class="footer">
+    <div class="footer-contact">
+      <div>
+        <h3>Kontak Kami</h3>
+        <p>WA: <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></p>
+        <p>Telepon: <a href="tel:+6281234567890">+62 812-3456-7890</a></p>
+        <p>Email: <a href="mailto:info@sundresto.com">info@sundresto.com</a></p>
+      </div>
+     <div class="footer-map">
+  <h3>Lokasi Kami</h3>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.920498982469!2d-122.08424968469293!3d37.42206577982508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5e4e4034f13%3A0x1c9f8c7a7aa2a9f6!2sGoogleplex!5e0!3m2!1sid!2sid!4v1603750400000!5m2!1sid!2sid"
+    width="300"
+    height="200"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+  ></iframe>
+</div>
+    </div></footer>
+</body>
+<script>
+ // Banner Slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+}
+
+function changeSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1; // Loop to last slide
+    } else if (currentSlide >= slides.length) {
+        currentSlide = 0; // Loop to first slide
+    }
+    showSlide(currentSlide);
+}
+
+// Auto slide every 5 seconds
+setInterval(() => {
+    changeSlide(1);
+}, 5000);
+
+// Show the first slide initially
+showSlide(currentSlide);
+
+// Fitur Pencarian
+const searchBox = document.getElementById('search-box');
+const cards = document.querySelectorAll('.card');
+
+searchBox.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    cards.forEach(card => {
+        const foodName = card.querySelector('h3').textContent.toLowerCase();
+        if (foodName.includes(searchTerm)) {
+            card.style.display = 'block'; 
+        } else {
+            card.style.display = 'none'; 
+        }
+    });
+});
+
+const menuIcon = document.getElementById('menu-icon');
+const dropdown = document.querySelector('.dropdown');
+
+menuIcon.addEventListener('click', (e) => {
+  e.stopPropagation(); // cegah event klik menjalar ke document
+  dropdown.classList.toggle('active'); // toggle kelas active
+});
+
+// Klik di luar dropdown dan icon untuk tutup menu
+document.addEventListener('click', () => {
+  dropdown.classList.remove('active');
+});
+</script>
+
 </html>
