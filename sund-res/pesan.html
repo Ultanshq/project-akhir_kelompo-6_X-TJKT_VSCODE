@@ -1,9 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pemesanan-Sund Resto</title>
-  </head>
-  <body></body>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemesanan - Sund Resto</title>
+  <link rel="stylesheet" href="./css/pesan.css"> 
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="./dashboard-sund_res.html">
+        <img src="./bahan-navbar/logo.png" alt="Profile" />
+      </a>
+    </div>
+    <div class="navbar-right">
+      
+      <a href="./keranjang.html">
+        <img src="./bahan-navbar/keranjang.png" alt="Profile" />
+      </a>
+      <a href="./prolog-cowo.html">
+        <img src="./bahan-navbar/profil.png" alt="Profile" />
+      </a>
+      <img src="./bahan-navbar/burger.png" alt="Menu" id="menu-icon" />
+    </div>
+
+    <div class="dropdown" id="dropdown">
+      <a href="./dashboard-sund_res.html">Beranda</a>
+      <a href="../sund-res/ttg-dlog.html">Tentang Kami</a>
+      <a href="layanan.html">Layanan</a>
+      <a href="#">Pengaturan</a>
+      <a href="landing-page.html">Keluar</a>
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- PILIH KABUPATEN -->
+    <section>
+      <label for="kabupaten">📍 Pilih Kabupaten/Kota:</label>
+      <select id="kabupaten" onchange="isiKecamatan()">
+        <option disabled selected>-- Pilih Kabupaten/Kota --</option>
+        <option value="Bogor">Bogor</option>
+        <option value="Depok">Depok</option>
+        <option value="Bekasi">Bekasi</option>
+        <option value="Jakarta">Jakarta</option>
+      </select>
+    </section>
+
+    <!-- PILIH KECAMATAN -->
+    <section>
+      <label for="kecamatan">📌 Pilih Kecamatan:</label>
+      <select id="kecamatan">
+        <option disabled selected>-- Pilih Kecamatan --</option>
+      </select>
+    </section>
+
+    <!-- RINGKASAN PESANAN -->
+    <section>
+      <h2>Ringkasan Pesanan</h2>
+      <p><strong>Menu:</strong> Nasi Goreng Spesial</p>
+      <p><strong>Harga:</strong> Rp 20.000</p>
+    </section>
+
+    <!-- KODE VOUCHER -->
+    <section>
+      <label for="voucher">🎁 Kode Voucher Diskon:</label>
+      <input type="text" id="voucher" placeholder="Contoh: HEMAT10">
+    </section>
+
+    <!-- TOTAL & PESAN -->
+    <section>
+      <p><strong>Total Pembayaran:</strong> <span id="total">Rp 20.000</span></p>
+      <button onclick="pesan()">Pesan Sekarang</button>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sund Resto</p>
+  </footer>
+
+  <script>
+    const dataKecamatan = {
+      Bogor: ["Cibinong", "Dramaga", "Ciawi"],
+      Depok: ["Beji", "Sukmajaya", "Cilodong"],
+      Bekasi: ["Cikarang", "Tambun", "Babelan"],
+      Jakarta: ["Menteng", "Tebet", "Kemayoran"]
+    };
+
+    function isiKecamatan() {
+      const kab = document.getElementById("kabupaten").value;
+      const kecamatanSelect = document.getElementById("kecamatan");
+
+      kecamatanSelect.innerHTML = '<option disabled selected>-- Pilih Kecamatan --</option>';
+
+      if (dataKecamatan[kab]) {
+        dataKecamatan[kab].forEach(kec => {
+          const opt = document.createElement("option");
+          opt.value = kec;
+          opt.textContent = kec;
+          kecamatanSelect.appendChild(opt);
+        });
+      }
+    }
+
+    function pesan() {
+      const voucher = document.getElementById("voucher").value.trim().toUpperCase();
+      let total = 20000;
+      if (voucher === "HEMAT10") {
+        total -= 2000;
+        alert("Voucher berhasil digunakan! Diskon Rp 2.000");
+      } else if (voucher) {
+        alert("Kode voucher tidak dikenal.");
+      }
+      document.getElementById("total").innerText = "Rp " + total.toLocaleString();
+    }
+  </script>
+
+</body>
 </html>
+

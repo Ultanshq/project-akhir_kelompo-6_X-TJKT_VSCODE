@@ -91,7 +91,7 @@ body {
   margin-top: 100px;
 
   padding: 30px;
-  background: #ffffff;
+  background:  #2b1f14;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', sans-serif;
@@ -99,10 +99,12 @@ body {
 }
 
 .about-container h1 {
-  color: #4caf50;
+  color: #8f521a;
   margin-bottom: 20px;
 }
-
+.about-container h2 {
+  color: #bd7737;
+}
 .group-name {
   font-size: 18px;
   font-weight: bold;
@@ -113,7 +115,7 @@ body {
   list-style-type: none;
   padding: 0;
   font-size: 16px;
-  color: #3a0909;
+  color: #fae8c8;
   margin-bottom: 40px;
 }
 
@@ -123,7 +125,7 @@ body {
 
 .footer {
   font-size: 14px;
-  color: #777;
-  border-top: 1px solid #ccc;
+  color: #bb690c;
+  border-top: 1px solid #704103;
   padding-top: 15px;
 }
