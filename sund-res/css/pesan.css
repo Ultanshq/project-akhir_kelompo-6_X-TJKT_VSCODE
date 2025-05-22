@@ -132,6 +132,45 @@ select, input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+.voucher-section {
+  margin: 20px 0;
+}
+
+.voucher-section label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.voucher-input-wrapper {
+  display: flex;
+  gap: 10px;
+  max-width: 100%;
+}
+
+.voucher-input-wrapper input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.voucher-input-wrapper button {
+  padding: 10px 16px;
+  background-color: #ffd166;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.voucher-input-wrapper button:hover {
+  background-color: #f2b705;
+}
 
 /* Tombol */
 button {

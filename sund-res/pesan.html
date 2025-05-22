@@ -46,6 +46,7 @@
         <option value="Depok">Depok</option>
         <option value="Bekasi">Bekasi</option>
         <option value="Jakarta">Jakarta</option>
+        <option value="Sukabumi">Sukabumi</option>
       </select>
     </section>
 
@@ -59,16 +60,20 @@
 
     <!-- RINGKASAN PESANAN -->
     <section>
-      <h2>Ringkasan Pesanan</h2>
-      <p><strong>Menu:</strong> Nasi Goreng Spesial</p>
-      <p><strong>Harga:</strong> Rp 20.000</p>
+      <h2>Siapkan Uang Anda</h2>
+      <p><strong>Estimasi:</strong>13 Menit</p>
+      <p><strong>Ongkos Kirim:</strong> Free</p>
     </section>
 
     <!-- KODE VOUCHER -->
-    <section>
-      <label for="voucher">🎁 Kode Voucher Diskon:</label>
-      <input type="text" id="voucher" placeholder="Contoh: HEMAT10">
-    </section>
+   <section class="voucher-section">
+  <label for="voucher">🎁 Kode Voucher Diskon:</label>
+  <div class="voucher-input-wrapper">
+    <input type="text" id="voucher" placeholder="Contoh: HEMAT10">
+    <button onclick="konfirmasiVoucher()">Konfirmasi</button>
+  </div>
+</section>
+
 
     <!-- TOTAL & PESAN -->
     <section>
@@ -97,10 +102,11 @@ document.addEventListener("click", (e) => {
 });
 
     const dataKecamatan = {
-      Bogor: ["Cibinong", "Dramaga", "Ciawi"],
-      Depok: ["Beji", "Sukmajaya", "Cilodong"],
-      Bekasi: ["Cikarang", "Tambun", "Babelan"],
-      Jakarta: ["Menteng", "Tebet", "Kemayoran"]
+      Bogor: ["Cibinong", "Dramaga", "Ciawi", "Ciomas","Empang", "Lozi", "Tegal Gundil"],
+      Depok: ["Beji", "Sukmajaya", "Cilodong", "Beji", "Bojong sari", "Cimanggis", "Cipayung" ],
+      Bekasi: ["Cikarang", "Tambun", "Babelan", "Pondok Gede", "Bantar Gebang", "Jati Asih",],
+      Jakarta: ["Menteng", "Tebet", "Kemayoran", "Senen", "Menteng", "Sawah Besar"],
+      Sukabumi: ["Cikole", "Cibadag", "Ciambar", "Cibitung", "Cikakak", "Cikidang"]
     };
 
     function isiKecamatan() {
