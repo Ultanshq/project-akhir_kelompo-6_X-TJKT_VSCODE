@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pesanan Berhasil - Sund Resto</title>
+  <link rel="stylesheet" href="./css/berhasil.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Pesanan Anda Telah Dibuat!</h1>
+    <p>Terima kasih telah memesan di Sund Resto.</p>
+    <p>Silakan siapkan uang untuk pembayaran saat pesanan tiba.</p>
+
+    <div class="order-info">
+      <p><strong>Menu:</strong> <span id="nama-menu">-</span></p>
+      <p><strong>Harga:</strong> Rp <span id="harga-menu">-</span></p>
+      <p><strong>Kode Transaksi:</strong> <span id="kode-transaksi">-</span></p>
+    </div>
+<div class="btnback"> 
+    <button><a href="./dashboard-sund_res.html">kembali ke dashboard</a> </button>
+</div>
+    <h2>Berikan Review & Rating Makanan</h2>
+
+    <form id="review-form">
+      <label for="rating">Rating:</label>
+      <select id="rating" required>
+        <option value="" disabled selected>Pilih rating</option>
+        <option value="5">★★★★★ - Sangat Baik</option>
+        <option value="4">★★★★ - Baik</option>
+        <option value="3">★★★ - Cukup</option>
+        <option value="2">★★ - Kurang</option>
+        <option value="1">★ - Buruk</option>
+      </select>
+
+      <label for="review">Review (optional):</label>
+      <textarea id="review" rows="4" placeholder="Tulis ulasan Anda di sini..."></textarea>
+
+      <button type="submit">Kirim Review</button>
+    </form>
+
+    <div id="thankyou-message" style="display:none; margin-top: 15px; color: green;">
+      Terima kasih atas review Anda!
+    </div>
+  </div>
+
+  <script>
+    
+     const nama = localStorage.getItem('namaMenu');
+  const harga = localStorage.getItem('hargaMenu');
+
+  document.getElementById('nama-menu').textContent = nama;
+  document.getElementById('harga-menu').textContent = harga;
+
+    // Generate kode transaksi acak
+    function generateTransactionCode() {
+      return Math.floor(Math.random() * (99999999 - 10000000) + 10000000);
+    }
+
+    const kodeTransaksi = generateTransactionCode();
+
+    document.getElementById('nama-menu').textContent = nama;
+    document.getElementById('harga-menu').textContent = harga;
+    document.getElementById('kode-transaksi').textContent = kodeTransaksi;
+
+    // Tangani form review
+    const form = document.getElementById('review-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const rating = document.getElementById('rating').value;
+      const review = document.getElementById('review').value;
+
+      // Simpan review di localStorage (atau kirim ke server)
+      const reviews = JSON.parse(localStorage.getItem('sund_resto_reviews') || '[]');
+      reviews.push({
+        menu: nama,
+        rating: rating,
+        review: review,
+        tanggal: new Date().toISOString()
+      });
+      localStorage.setItem('sund_resto_reviews', JSON.stringify(reviews));
+
+      // Tampilkan pesan terima kasih dan reset form
+      document.getElementById('thankyou-message').style.display = 'block';
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>

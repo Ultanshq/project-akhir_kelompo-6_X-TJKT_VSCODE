@@ -62,57 +62,64 @@
     <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
     <button class="next" onclick="changeSlide(1)">&#10095;</button>
 </section>
-    <!-- Navigasi slider bisa ditambah di JS -->
-  </section>
+    
 
-  <!-- Section Menu Makanan dengan scroll horizontal -->
+  
   <section class="horizontal-section" id="menu-makanan">
     <h2>Menu Makanan</h2>
     <div class="scroll-container">
-      <!-- Contoh item makanan -->
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Nasi Goreng', 13000)">
         <img src="./dashboard/makanan-minuman/Nasi Goreng.jpg" alt="Nasi Goreng" />
         <h3>Nasi Goreng</h3>
+        <p class="harga">Rp 13.000</p>
         <p>Rating: 4.8</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
-        <img src="./dashboard/makanan-minuman/Lalapan Enak!.jpg" alt="Pecel Lele" />
+      <div class="card" onclick="goToPembayaran('Pecel Lele', 12000)">
+        <img src="./dashboard/makanan-minuman/Lalapan Enak!.jpg" alt="Es Teh Manis" />
         <h3>Pecel Lele</h3>
         <p>Rating: 4.9</p>
+        <p class="harga">Rp 12.000</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Milk Shake', 10000)">
         <img src="./dashboard/makanan-minuman/How to Make a Milkshake - Easy Recipe Formula - Dessert for Two.jpg" alt="Milk Shake" />
         <h3>Milk Shake</h3>
+        <p class="harga">Rp 10.000</p>
         <p>Rating: 4.8</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Ayam Bakar', 10000)">
         <img src="./dashboard/makanan-minuman/Resep AYAM BAKAR KECAP Pak Sahak oleh dapurVY.jpg" alt="Ayam Bakar" />
         <h3>Ayam Bakar</h3>
+        <p class="harga">Rp 10.000</p>
         <p>Rating: 4.7</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Teh Manis Dingin', 2000)">
         <img src="./dashboard/makanan-minuman/te.jpg" alt="Teh Manis" />
         <h3>Teh Manis Dingin</h3>
+        <p class="harga">Rp 2.000</p>
         <p>Rating: 4.9</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Mie Goreng Ayam Suwir', 10000)">
         <img src="./dashboard/makanan-minuman/miegoreng.jpeg" alt="Mie Goreng Ayam Suwir" />
         <h3>Mie Goreng Ayam Suwir</h3>
+        <p class="harga">Rp 10.000</p>
         <p>Rating: 4.8</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Ayam Panggang', 14000)">
         <img src="./dashboard/makanan-minuman/Ayam Bakar IRZAH, Pinang Kunciran.jpeg" alt="" />
         <h3>Ayam Panggang</h3>
+        <p class="harga">Rp 14.000</p>
         <p>Rating: 4.6</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Sate Ayam', 17000)">
         <img src="./dashboard/makanan-minuman/Resep Sate ayam oleh Susana Gracia Cathrine.jpeg" alt="" />
         <h3>Sate Ayam</h3>
+        <p class="harga">Rp 17.000</p>
         <p>Rating: 4.8</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Soto Ayam', 12000)">
         <img src="./dashboard/makanan-minuman/Resep Soto Ayam Santan Gurih dan Cara Mudah Membuatnya!.jpeg" alt="" />
         <h3>Soto Ayam</h3>
+        <p class="harga">Rp 12.000</p>
         <p>Rating: 4.5</p>
       </div>
     </div>
@@ -130,13 +137,13 @@
         <p>Isi: Nasi Goreng + Teh Manis</p>
         <p class="harga">Rp 30.000</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Paket Hemat 2', 35000)">
         <img src="./dashboard/makanan-minuman/Nasi Goreng.jpg" alt="Paket Hemat 2" />
         <h3>Paket Hemat 2</h3>
         <p>Isi: Pecel Lele + Es Jeruk</p>
         <p class="harga">Rp 35.000</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Paket Hemat 3', 40000)">
         <img src="./dashboard/makanan-minuman/te.jpg" alt="Paket Hemat 3" />
         <h3>Paket Hemat 3</h3>
         <p>Isi: Ayam Bakar + Es Teh</p>
@@ -149,19 +156,19 @@
   <section class="horizontal-section" id="best-seller">
     <h2>Best Seller</h2>
     <div class="scroll-container">
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Teh Manis Dingin', 2000)">
         <img src="./dashboard/makanan-minuman/te.jpg" alt="Teh Manis" />
         <h3>Teh Manis Dingin</h3>
         <p>Rating: 4.9</p>
         <p class="harga">Rp 2.000</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Milk Shake', 10000)">
         <img src="./dashboard/makanan-minuman/How to Make a Milkshake - Easy Recipe Formula - Dessert for Two.jpg" alt="Mie Goreng" />
         <h3>Milk Shake</h3>
         <p>Rating: 4.8</p>
         <p class="harga">Rp 10.000</p>
       </div>
-      <div class="card" onclick="location.href='pesan.html'">
+      <div class="card" onclick="goToPembayaran('Pecel Lele', 12000)">
         <img src="./dashboard/makanan-minuman/Lalapan Enak!.jpg" alt="Es Teh Manis" />
         <h3>Pecel Lele</h3>
         <p>Rating: 4.9</p>
@@ -246,6 +253,9 @@ menuIcon.addEventListener('click', (e) => {
 document.addEventListener('click', () => {
   dropdown.classList.remove('active');
 });
+function goToPembayaran(nama, harga) {
+    window.location.href = `pesan.html?nama=${encodeURIComponent(nama)}&harga=${harga}`;
+  }
 </script>
 
 </html>

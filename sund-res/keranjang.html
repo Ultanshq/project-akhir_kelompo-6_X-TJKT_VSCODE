@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keranjang - Sund Resto</title>
+  <link rel="stylesheet" href="./css/keranjang.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="./dashboard-sund_res.html">
+        <img src="./bahan-navbar/logo.png" alt="Profile" />
+      </a>
+    </div>
+    <div class="navbar-right">
+      <a href="./prolog-cowo.html">
+        <img src="./bahan-navbar/profil.png" alt="Profile" />
+      </a>
+      <img src="./bahan-navbar/burger.png" alt="Menu" id="menu-icon" />
+    </div>
+
+    <div class="dropdown" id="dropdown">
+      <a href="./dashboard-sund_res.html">Beranda</a>
+      <a href="../sund-res/ttg-dlog.html">Tentang Kami</a>
+      <a href="layanan.html">Layanan</a>
+      <a href="#">Pengaturan</a>
+      <a href="landing-page.html">Keluar</a>
+    </div>
+  </nav>
+
+  <main class="container">
+  <div class="keranjang-kosong-box">
+    <h2>Keranjang Anda Kosong</h2>
+    <p>Anda belum memesan apapun.</p>
+  </div>
+
+  <section class="rekomendasi">
+    <h3>Rekomendasi Menu</h3>
+    <div class="card" onclick="goToPembayaran('Teh Manis Dingin', 2000)">
+      <img src="./dashboard/makanan-minuman/te.jpg" alt="Teh Manis" />
+      <h3>Teh Manis Dingin</h3>
+      <p>Rating: 4.9</p>
+      <p class="harga">Rp 2.000</p>
+    </div>
+    <div class="card" onclick="goToPembayaran('Milk Shake', 10000)">
+      <img src="./dashboard/makanan-minuman/How to Make a Milkshake - Easy Recipe Formula - Dessert for Two.jpg" alt="Milk Shake" />
+      <h3>Milk Shake</h3>
+      <p>Rating: 4.8</p>
+      <p class="harga">Rp 10.000</p>
+    </div>
+    <div class="card" onclick="goToPembayaran('Pecel Lele', 12000)">
+      <img src="./dashboard/makanan-minuman/Lalapan Enak!.jpg" alt="Pecel Lele" />
+      <h3>Pecel Lele</h3>
+      <p>Rating: 4.9</p>
+      <p class="harga">Rp 12.000</p>
+    </div>
+  </section>
+</main>
+<script>
+    const menuIcon = document.getElementById('menu-icon');
+const dropdown = document.querySelector('.dropdown');
+
+menuIcon.addEventListener('click', (e) => {
+  e.stopPropagation(); // cegah event klik menjalar ke document
+  dropdown.classList.toggle('active'); // toggle kelas active
+});
+document.addEventListener('click', () => {
+  dropdown.classList.remove('active');
+});
+function goToPembayaran(nama, harga) {
+    window.location.href = `pesan-html.html?nama=${encodeURIComponent(nama)}&harga=${harga}`;
+  }
+</script>
+</body>
+</html>
