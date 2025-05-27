@@ -375,7 +375,12 @@ body::before {
   color: #ddd;
   transition: color 0.3s ease;
 }
-
+.cp{
+  font-family: Segoe UI Italic;
+  color: #ff6700;
+  padding-top: 90px;
+  text-align: center;
+}
 .footer-contact a:hover {
   color: #ff6700;
 }
