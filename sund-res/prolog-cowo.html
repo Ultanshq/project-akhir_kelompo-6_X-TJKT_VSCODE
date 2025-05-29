@@ -6,107 +6,110 @@
     <title>Profil Pengguna</title>
     <link rel="stylesheet" href="./css/profil.css" />
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="./css/profil.css">
   </head>
   <body>
-     <nav class="navbar">
-    <div class="navbar-left">
-      <a href="./dashboard-sund_res.html">
-        <img src="./bahan-navbar/logo.png" alt="Profile" />
-      </a>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <a href="./dashboard-sund_res.html">
+          <img src="./bahan-navbar/logo.png" alt="Sund Resto Logo" class="logo" />
+        </a>
+      </div>
+      <div class="navbar-right">
+        <a href="./keranjang.html" class="nav-icon" title="Keranjang">
+          <i data-feather="shopping-cart"></i>
+        </a>
+        <a href="./prolog-cowo.html" class="nav-icon" title="Profil">
+          <i data-feather="user"></i>
+        </a>
+        <button class="nav-icon" id="menu-button" title="Menu">
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+
+      <div class="dropdown" id="dropdown">
+        <a href="./dashboard-sund_res.html"><i data-feather="home"></i> Beranda</a>
+        <a href="../sund-res/ttg-dlog.html"><i data-feather="info"></i> Tentang Kami</a>
+        <a href="layanan.html"><i data-feather="settings"></i> Layanan</a>
+        <a href="#"><i data-feather="sliders"></i> Pengaturan</a>
+        <a href="landing-page.html"><i data-feather="log-out"></i> Keluar</a>
+      </div>
+    </nav>
+
+    <div class="page-wrapper">
+      <div class="profile-card modern-card">
+        <img src="./dashboard/imgprofil/download.jpg" class="profile-pic" alt="Foto Profil" />
+
+        <div class="info-item" id="nameItem">
+          <label>Nama:</label>
+          <span id="nameDisplay"></span>
+          <button id="editNameBtn" onclick="toggleEdit('name')">Ubah</button>
+        </div>
+
+        <div class="info-item" id="phoneItem">
+          <label>No. Telepon:</label>
+          <span id="phoneDisplay"></span>
+          <button id="editPhoneBtn" onclick="toggleEdit('phone')">Ubah</button>
+        </div>
+
+        <div class="info-item" id="emailItem">
+          <label>Email:</label>
+          <span id="emailDisplay"></span>
+          <button id="editEmailBtn" onclick="toggleEdit('email')">Ubah</button>
+        </div>
+      </div>
+
+      <section class="history modern-card">
+        <h2>Riwayat Pesanan</h2>
+        <ul>
+          <li><span>14 Mei 2025 - Paket Hemat 2</span><span>Rp12.000</span></li>
+          <li><span>12 Mei 2025 - Ayam Bakar</span><span>Rp10.000</span></li>
+          <li><span>10 Mei 2025 - Pecel Lele</span><span>Rp12.000</span></li>
+        </ul>
+      </section>
+
+      <section class="notifications modern-card">
+        <h2>Notifikasi</h2>
+        <ul>
+          <li>[15 Mei] Promo diskon 20% untuk menu spesial Minggu ini!</li>
+          <li>[13 Mei] Pesanan Anda sudah dikonfirmasi dan sedang diproses.</li>
+          <li>[10 Mei] Selamat datang di Sund Resto, terima kasih telah mendaftar!</li>
+        </ul>
+      </section>
     </div>
-    <div class="navbar-right">
-      <a href="./keranjang.html">
-        <img src="./bahan-navbar/keranjang.png" alt="Profile" />
-      </a>
-      <a href="./prolog-cowo.html">
-        <img src="./bahan-navbar/profil.png" alt="Profile" />
-      </a>
-      <img src="./bahan-navbar/burger.png" alt="Menu" id="menu-icon" />
-    </div>
 
-    <div class="dropdown" id="dropdown">
-      <a href="./dashboard-sund_res.html">Beranda</a>
-      <a href="../sund-res/ttg-dlog.html">Tentang Kami</a>
-      <a href="layanan.html">Layanan</a>
-      <a href="#">Pengaturan</a>
-      <a href="landing-page.html">Keluar</a>
-    </div>
-  </nav>
-<div class="page-wrapper">
- <div class="profile-card">
-    <img src="./dashboard/imgprofil/download.jpg" class="profile-pic" alt="Foto Profil" />
+    <footer class="footer">
+      <div class="footer-contact">
+        <div class="social-icons">
+          <a href="https://wa.me/6285952464007" target="_blank" class="social-link" title="WhatsApp">
+            <i data-feather="message-square" class="social-icon"></i>
+          </a>
+          <a href="tel:‪+62895810990222‬" class="social-link" title="Telepon">
+            <i data-feather="phone" class="social-icon"></i>
+          </a>
+          <a href="mailto:sultandan216@gmail.com" class="social-link" title="Email">
+            <i data-feather="mail" class="social-icon"></i>
+          </a>
+          <a href="https://www.tiktok.com/@handsomenerd_" target="_blank" class="social-link" title="TikTok">
+            <i data-feather="music" class="social-icon"></i>
+          </a>
+          <a href="https://www.instagram.com/handsomenerd_" target="_blank" class="social-link" title="Instagram">
+            <i data-feather="instagram" class="social-icon"></i>
+          </a>
+        </div>
+        <div class="footer-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d990.8531725639893!2d106.75400726950423!3d-6.595521667357961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMzUnNDMuOSJTIDEwNsKwNDUnMTYuNyJF!5e0!3m2!1sid!2sid!4v1747558320152!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p class="copyright">© 2025 Sund-Resto – All rights reserved.</p>
+      </div>
+    </footer>
 
-    <div class="info-item" id="nameItem">
-      <label>Nama:</label>
-      <span id="nameDisplay"></span>
-      <button id="editNameBtn" onclick="toggleEdit('name')">Ubah</button>
-    </div>
-
-    <div class="info-item" id="phoneItem">
-      <label>No. Telepon:</label>
-      <span id="phoneDisplay"></span>
-      <button id="editPhoneBtn" onclick="toggleEdit('phone')">Ubah</button>
-    </div>
-
-    <div class="info-item" id="emailItem">
-      <label>Email:</label>
-      <span id="emailDisplay"></span>
-      <button id="editEmailBtn" onclick="toggleEdit('email')">Ubah</button>
-    </div>
-  </div>
-
-
-   <section class="history">
-      <h2>Riwayat Pesanan</h2>
-      <ul>
-        <li>14 Mei 2025 - Paket Hemat 2 - Rp12.000</li>
-        <li>12 Mei 2025 - Ayam Bakar - Rp10.000</li>
-        <li>10 Mei 2025 - Pecel Lele - Rp12.000</li>
-      </ul>
-    </section>
-
-    <section class="notifications">
-      <h2>Notifikasi</h2>
-      <ul>
-        <li>[15 Mei] Promo diskon 20% untuk menu spesial Minggu ini!</li>
-        <li>[13 Mei] Pesanan Anda sudah dikonfirmasi dan sedang diproses.</li>
-        <li>[10 Mei] Selamat datang di Sund Resto, terima kasih telah mendaftar!</li>
-      </ul>
-    </section>
-  </section>
-</div>
-<footer class="footer">
-  <div class="footer-contact">
-    <div class="social-icons">
-      <a href="https://wa.me/6285952464007" target="_blank" class="social-link" title="WhatsApp">
-        <i data-feather="message-square" class="social-icon"></i>
-      </a>
-      <a href="tel:‪+62895810990222‬" class="social-link" title="Telepon">
-        <i data-feather="phone" class="social-icon"></i>
-      </a>
-      <a href="mailto:sultandan216@gmail.com" class="social-link" title="Email">
-        <i data-feather="mail" class="social-icon"></i>
-      </a>
-      <a href="https://www.tiktok.com/@handsomenerd_" target="_blank" class="social-link" title="TikTok">
-        <i data-feather="music" class="social-icon"></i>
-      </a>
-      <a href="https://www.instagram.com/handsomenerd_" target="_blank" class="social-link" title="Instagram">
-        <i data-feather="instagram" class="social-icon"></i>
-      </a>
-    </div>
-    <div class="footer-map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d990.8531725639893!2d106.75400726950423!3d-6.595521667357961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMzUnNDMuOSJTIDEwNsKwNDUnMTYuNyJF!5e0!3m2!1sid!2sid!4v1747558320152!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <p class="copyright">© 2025 Sund-Resto – All rights reserved.</p>
-  </div>
-</footer>
-
-
-  </body>
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    feather.replace();
-  });
-</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        feather.replace();
+      });
+    </script>
     <script src="./js/profdata.js"></script>
+    <script src="./js/menu.js"></script>
+  </body>
 </html>
