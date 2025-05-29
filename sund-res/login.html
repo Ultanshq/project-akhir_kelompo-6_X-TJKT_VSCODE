@@ -10,19 +10,24 @@
   <body>
     <nav class="navbar">
       <div class="navbar-left">
-        <img src="./bahan-navbar/logo.png" alt="Logo" />
+        <a href="./landing-page.html">
+          <img src="./bahan-navbar/logo.png" alt="Sund Resto Logo" class="logo" />
+        </a>
       </div>
       <div class="navbar-right">
-        <img src="./bahan-navbar/burger.png" alt="Menu" id="menu-icon" />
+        <button class="nav-icon" id="menu-button" aria-label="Menu">
+          <i data-feather="menu"></i>
+        </button>
       </div>
 
       <div class="dropdown" id="dropdown">
-        <a href="./landing-page.html">Beranda</a>
-        <a href="./login.html">Masuk</a>
-        <a href="./register.html">Buat Akun</a>
-        <a href="../sund-res/ttg-lomlog.html">Tentang Kami</a>
+        <a href="./landing-page.html"><i data-feather="home"></i> Beranda</a>
+        <a href="./login.html"><i data-feather="log-in"></i> Masuk</a>
+        <a href="./register.html"><i data-feather="user-plus"></i> Buat Akun</a>
+        <a href="../sund-res/ttg-lomlog.html"><i data-feather="info"></i> Tentang Kami</a>
       </div>
     </nav>
+
     <div class="login-box">
       <h2>Login ke Akun Anda</h2>
       <form id="loginForm">
@@ -30,8 +35,24 @@
         <input type="password" id="password" placeholder="Password" required />
         <button type="submit">Masuk</button>
       </form>
+          <div class="social-login">
+  <p><span>Atau masuk dengan</span></p>
+  <div class="social-login-icons">
+    <a href="#" class="social-icon-link" title="Login dengan Google">
+      <i data-feather="at-sign"></i>
+    </a>
+    <a href="#" class="social-icon-link" title="Login dengan Facebook">
+      <i data-feather="facebook"></i>
+    </a>
+    <a href="#" class="social-icon-link" title="Login dengan Instagram">
+      <i data-feather="instagram"></i>
+    </a>
+  </div>
+</div>
       <p>Belum punya akun? <a href="register.html">Daftar sekarang</a></p>
     </div>
+    
+    
     <footer class="footer">
   <div class="footer-contact">
     <div class="social-icons">

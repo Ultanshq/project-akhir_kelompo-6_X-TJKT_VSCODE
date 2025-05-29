@@ -24,27 +24,32 @@
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="navbar-left">
-      <a href="./dashboard-sund_res.html">
-        <img src="./bahan-navbar/logo.png" alt="Profile" />
-      </a>
-    </div>
-    <div class="navbar-right">
-      <a href="./prolog-cowo.html">
-        <img src="./bahan-navbar/profil.png" alt="Profile" />
-      </a>
-      <img src="./bahan-navbar/burger.png" alt="Menu" id="menu-icon" />
-    </div>
+   <nav class="navbar">
+  <div class="navbar-left">
+    <a href="./dashboard-sund_res.html">
+      <img src="./bahan-navbar/logo.png" alt="Sund Resto Logo" class="logo" />
+    </a>
+  </div>
+  <div class="navbar-right">
+    <a href="./keranjang.html" class="nav-icon" title="Keranjang">
+      <i data-feather="shopping-cart"></i>
+    </a>
+    <a href="./prolog-cowo.html" class="nav-icon" title="Profil">
+      <i data-feather="user"></i>
+    </a>
+    <button class="nav-icon" id="menu-button" title="Menu">
+      <i data-feather="menu"></i>
+    </button>
+  </div>
 
-    <div class="dropdown" id="dropdown">
-      <a href="./dashboard-sund_res.html">Beranda</a>
-      <a href="../sund-res/ttg-dlog.html">Tentang Kami</a>
-      <a href="layanan.html">Layanan</a>
-      <a href="#">Pengaturan</a>
-      <a href="landing-page.html">Keluar</a>
-    </div>
-  </nav>
+  <div class="dropdown" id="dropdown">
+    <a href="./dashboard-sund_res.html"><i data-feather="home"></i> Beranda</a>
+    <a href="../sund-res/ttg-dlog.html"><i data-feather="info"></i> Tentang Kami</a>
+    <a href="layanan.html"><i data-feather="settings"></i> Layanan</a>
+    <a href="#"><i data-feather="sliders"></i> Pengaturan</a>
+    <a href="landing-page.html"><i data-feather="log-out"></i> Keluar</a>
+  </div>
+</nav>
 
   <div class="overlay" id="overlay"></div>
 
@@ -138,107 +143,7 @@
     </div>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      feather.replace();
-      
-      // Burger menu functionality
-      const menuIcon = document.getElementById('menu-icon');
-      const dropdown = document.getElementById('dropdown');
-      const overlay = document.getElementById('overlay');
-
-      menuIcon.addEventListener('click', function(e) {
-        e.stopPropagation();
-        dropdown.classList.toggle('active');
-        overlay.style.display = dropdown.classList.contains('active') ? 'block' : 'none';
-      });
-
-      overlay.addEventListener('click', function() {
-        dropdown.classList.remove('active');
-        overlay.style.display = 'none';
-      });
-
-      document.addEventListener('click', function(e) {
-  if (!dropdown.contains(e.target) && e.target !== menuIcon) {
-    dropdown.classList.remove('active');
-    overlay.style.display = 'none';
-  }
-});
-      // Modal functionality
-      const modal = document.getElementById('foodModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalImage = document.getElementById('modalImage');
-      const modalPrice = document.getElementById('modalPrice');
-      const closeModal = document.getElementById('closeModal');
-      const orderNowBtn = document.getElementById('orderNow');
-      const addToCartBtn = document.getElementById('addToCart');
-
-      // Card click handlers
-      document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          // Get data from the clicked card
-          const title = this.querySelector('h3').textContent;
-          const price = this.querySelector('.harga').textContent;
-          const imageSrc = this.querySelector('img').src;
-          
-          // Set modal content
-          modalTitle.textContent = title;
-          modalPrice.textContent = price;
-          modalImage.src = imageSrc;
-          
-          // Show modal and overlay
-          overlay.style.display = 'block';
-          modal.style.display = 'block';
-          setTimeout(() => {
-            modal.classList.add('active');
-          }, 10);
-          
-          // Store current item data in modal for later use
-          modal.dataset.title = title;
-          modal.dataset.price = price.replace(/\D/g, ''); // Get numeric price only
-          modal.dataset.image = imageSrc;
-        });
-      });
-
-      // Close modal
-      function closeModalFunc() {
-        modal.classList.remove('active');
-        setTimeout(() => {
-          modal.style.display = 'none';
-          overlay.style.display = 'none';
-        }, 300);
-      }
-
-      closeModal.addEventListener('click', closeModalFunc);
-      overlay.addEventListener('click', closeModalFunc);
-
-      // Order Now button
-      orderNowBtn.addEventListener('click', function() {
-        const title = modal.dataset.title;
-        const price = modal.dataset.price;
-        const image = modal.dataset.image;
-        window.location.href = `pesan.html?nama=${encodeURIComponent(title)}&harga=${price}&gambar=${encodeURIComponent(image)}`;
-        closeModalFunc();
-      });
-
-      // Add to Cart button
-      addToCartBtn.addEventListener('click', function() {
-        alert('Item ditambahkan ke keranjang!');
-        closeModalFunc();
-      });
-
-      // Initialize feather icons when modal is shown
-      modal.addEventListener('shown.bs.modal', function() {
-        feather.replace();
-      });
-    });
-
-    function goToPembayaran(nama, harga, gambar) {
-      window.location.href = `pesan.html?nama=${encodeURIComponent(nama)}&harga=${harga}&gambar=${encodeURIComponent(gambar)}`;
-      return false;
-    }
-  </script>
+ 
 </body>
+<script src="./js/keranjang.js"></script>
 </html>

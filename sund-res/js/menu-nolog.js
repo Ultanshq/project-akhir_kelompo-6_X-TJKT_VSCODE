@@ -18,3 +18,17 @@
             }
           });
         }
+document.addEventListener('DOMContentLoaded', function() {
+  const closeRec = document.querySelector('.close-recommendation');
+  const loginRec = document.querySelector('.login-recommendation');
+  
+  if (closeRec && loginRec) {
+    closeRec.addEventListener('click', function() {
+      loginRec.style.display = 'none';
+      document.querySelector('.buat-mesan').style.marginTop = '0';
+    });
+  }
+});
+ document.addEventListener('DOMContentLoaded', function() {
+    feather.replace();
+  });

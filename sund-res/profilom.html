@@ -8,23 +8,30 @@
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbar-left">
-        <a href="./dashboard-belum-login.html">
-          <img src="./bahan-navbar/logo.png" alt="Profile" />
-        </a>
-      </div>
-      <div class="navbar-right">
-        <img src="./bahan-navbar/burger.png" alt="Menu" id="menu-icon" />
-      </div>
+     <nav class="navbar">
+  <div class="navbar-left">
+    <a href="./dashboard-belum-login.html">
+      <img src="./bahan-navbar/logo.png" alt="Sund Resto Logo" class="logo" />
+    </a>
+  </div>
+  <div class="navbar-right">
+    <a href="./keranjang-nolog.html" class="nav-icon">
+      <i data-feather="shopping-cart"></i>
+    </a>
+    <a href="./profilom.html" class="nav-icon">
+      <i data-feather="user"></i>
+    </a>
+    <button class="nav-icon" id="menu-button">
+      <i data-feather="menu"></i>
+    </button>
+  </div>
 
-      <div class="dropdown" id="dropdown">
-        <a href="./dashboard-belum-login.html">Beranda</a>
-        <a href="./login.html">Masuk</a>
-        <a href="./register.html">Buat Akun</a>
-        <a href="../sund-res/ttg-lomlog.html">Tentang Kami</a>
-      </div>
-    </nav>
+  <div class="dropdown" id="dropdown">
+    <a href="./dashboard-belum-login.html"><i data-feather="home"></i> Beranda</a>
+    <a href="../sund-res/ttg-lomlog.html"><i data-feather="info"></i> Tentang Kami</a>
+    <a href="landing-page.html"><i data-feather="log-out"></i> Keluar</a>
+  </div>
+</nav>
  <div class="login-recommendation">
   <div class="recommendation-content">
     <span class="close-recommendation">&times;</span>
@@ -77,6 +84,6 @@
     feather.replace();
   });
 </script>
-    <script src="./js/prof.js"></script>
+    <script src="./js/menu-nolog.js"></script>
   </body>
 </html>

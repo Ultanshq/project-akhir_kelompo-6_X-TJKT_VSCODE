@@ -25,60 +25,132 @@ body {
   z-index: 0;
 }
 .navbar {
-  background-color: #2b1f14; /* warna gelap hangat */
-  color: white;
-  padding: 20px 40px; /* ukuran navbar lebih besar */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+    width: 100%; 
 }
 
-.navbar-left img {
-  height: 45px; /* lebih besar */
-}
+  .navbar-left .logo {
+    height: 40px;
+  }
 
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 
-.navbar-right img {
-  height: 30px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
+  .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
 
-.navbar-right img:hover {
-  transform: scale(1.1);
-}
+  #search-box {
+    padding: 8px 15px 8px 35px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 200px;
+    font-size: 14px;
+  }
 
-.dropdown {
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background-color: #2b1f14;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  display: none;
-  flex-direction: column;
-  width: 200px;
-  overflow: hidden;
-  animation: fadeIn 0.3s ease-in-out;
-  z-index: 999;
-}
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    color: #777;
+    width: 18px;
+    height: 18px;
+  }
 
-.dropdown a {
-  padding: 14px 20px;
-  text-decoration: none;
-  color: #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background 0.3s, padding-left 0.3s;
-}
+  .nav-icon {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    padding: 5px;
+    transition: color 0.3s;
+  }
+
+  .nav-icon:hover {
+    color: #ff5722; /* Orange color for hover */
+  }
+
+  .nav-icon i {
+    width: 22px;
+    height: 22px;
+  }
+
+  #menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  /* Dropdown Styles */
+   .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background: white;
+    border-radius: 12px; /* Lebih rounded */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Shadow lebih tebal */
+    padding: 15px 0; /* Padding lebih longgar */
+    min-width: 220px; /* Lebar lebih besar */
+    z-index: 100;
+    transform-origin: top right;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .dropdown.show {
+    display: block;
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 25px; /* Padding lebih besar */
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 15px; /* Font lebih besar */
+    border-left: 4px solid transparent;
+  }
+
+  .dropdown a:hover {
+    background: #f8f8f8;
+    border-left: 4px solid #ff5722;
+    padding-left: 21px; /* Untuk kompensasi border */
+  }
+
+  .dropdown a i {
+    width: 20px;
+    height: 20px;
+    color: #ff5722;
+  }
+
+  /* Animasi icon burger saat aktif */
+  #menu-button.active i {
+    transform: rotate(90deg);
+  }
+
+  #menu-button i {
+    transition: transform 0.3s ease;
+  }
 
 .dropdown a:hover {
   background-color: rgba(255, 165, 0, 0.1); /* efek hover oren soft */
@@ -198,81 +270,74 @@ body {
   margin-bottom: 15px;
 }
 
+/* Tambahkan ini ke CSS Anda */
 .modal-body {
-  flex: 1;
   display: flex;
-  flex-direction: row;
-  gap: 15px;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .modal-image {
-  width: 50%;
-  aspect-ratio: 1/1; 
+  width: 100%;
+  max-height: 250px;
   object-fit: cover;
   border-radius: 10px;
-
 }
+
 .harga-modal {
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  text-align: end;
-
-  align-self: flex-start; 
-  width: 50%; 
-}
-
-.harga-modal span {
-  font-size: 18px;
-  font-weight: bold;
-  color: #c46104;
-  
-}
-.modal-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.modal-button {
-  flex: 1;
-  padding: 12px;
-  border: none;
+  background-color: #fff8f0; /* Warna background oranye muda */
+  color: #ff6b00; /* Warna teks oranye */
+  padding: 10px 15px;
   border-radius: 8px;
   font-weight: bold;
-  cursor: pointer;
-  
-}
-
-.modal-button.keranjang {
-  background-color: #f0f0f0;
-  margin-right: 10px;
-}
-
-.modal-button.pesan {
-  background-color: #ff6b6b;
-  color: white;
+  text-align: center;
+  margin: 10px 0;
 }
 
 .modal-extra-actions {
   display: flex;
   justify-content: space-around;
-  margin-top: 15px;
+  width: 100%;
+  margin: 15px 0;
 }
 
 .modal-extra-action {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #ff6b00; /* Warna oranye */
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.modal-close {
-  background: none;
+.modal-extra-action:hover {
+  color: #ff4500; /* Warna oranye lebih gelap saat hover */
+}
+
+.modal-extra-action i {
+  margin-bottom: 5px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.modal-button.keranjang {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.modal-button.pesan {
+  background-color: #ff6b00; /* Warna oranye */
+  color: white;
   border: none;
-  font-size: 24px;
-  cursor: pointer;
 }
 
+.modal-button.pesan:hover {
+  background-color: #ff4500; /* Warna oranye lebih gelap saat hover */
+}
 @media (min-width: 768px) {
   .modal {
     height: auto;
@@ -347,4 +412,91 @@ body {
     padding: 15px;
     font-size: 1rem;
   }
+}
+.footer {
+  background-color: #2b1f14;
+  color: white;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.footer-contact {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-block;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  color: #ff5e5e;
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.2);
+}
+
+.footer-map iframe {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.copyright {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-contact {
+    flex-direction: column;
+  }
+  
+  .footer-map iframe {
+    height: 250px;
+  }
+  
+  .social-link {
+    justify-content: center;
+  }
+  .social-icons {
+    gap: 20px;
+  }
+  
+  .footer-map iframe {
+    height: 250px;
+}
 }
