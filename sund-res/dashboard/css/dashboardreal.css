@@ -512,6 +512,7 @@ body::before {
     .food-title {
       margin: 0 0 5px 0;
       font-size: 22px;
+      color: #ff5722;
     }
     
     .food-price {

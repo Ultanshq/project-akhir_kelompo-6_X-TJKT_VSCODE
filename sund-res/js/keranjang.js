@@ -21,56 +21,60 @@ document.addEventListener('DOMContentLoaded', function() {
             }
           });
         }
-      // Modal functionality
-      const modal = document.getElementById('foodModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalImage = document.getElementById('modalImage');
-      const modalPrice = document.getElementById('modalPrice');
-      const closeModal = document.getElementById('closeModal');
-      const orderNowBtn = document.getElementById('orderNow');
-      const addToCartBtn = document.getElementById('addToCart');
-
-      // Card click handlers
-      document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', function(e) {
-          e.preventDefault();
-          
+      // Initialize variables
+      const modalOverlay = document.getElementById('modalOverlay');
+      const modalFoodTitle = document.getElementById('modalFoodTitle');
+      const modalFoodPrice = document.getElementById('modalFoodPrice');
+      const modalFoodImage = document.getElementById('modalFoodImage');
+      const modalCloseBtn = document.getElementById('modalCloseBtn');
+      const orderNowBtn = document.getElementById('orderNowBtn');
+      const addToCartBtn = document.getElementById('addToCartBtn');
+      
+      // Get all card elements
+      const cards = document.querySelectorAll('.card');
+      
+      // Add click event to each card
+      cards.forEach(card => {
+        card.addEventListener('click', function() {
           // Get data from the clicked card
           const title = this.querySelector('h3').textContent;
           const price = this.querySelector('.harga').textContent;
           const imageSrc = this.querySelector('img').src;
+          const rating = this.querySelector('p:not(.harga)')?.textContent || '';
           
           // Set modal content
-          modalTitle.textContent = title;
-          modalPrice.textContent = price;
-          modalImage.src = imageSrc;
+          modalFoodTitle.textContent = title;
+          modalFoodPrice.textContent = price;
+          modalFoodImage.src = imageSrc;
+          modalFoodImage.alt = title;
           
-          // Show modal and overlay
-          overlay.style.display = 'block';
-          modal.style.display = 'block';
-          setTimeout(() => {
-            modal.classList.add('active');
-          }, 10);
+          // Show modal
+          modalOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
           
-          // Store current item data in modal for later use
-          modal.dataset.title = title;
-          modal.dataset.price = price.replace(/\D/g, ''); // Get numeric price only
-          modal.dataset.image = imageSrc;
+          // Store current item data in modal dataset for later use
+          modalOverlay.dataset.title = title;
+          modalOverlay.dataset.price = price.replace(/\D/g, '');
+          modalOverlay.dataset.image = imageSrc;
+          
+          // Replace feather icons (in case they were added dynamically)
+          feather.replace();
         });
       });
-
+      
       // Close modal
-      function closeModalFunc() {
-        modal.classList.remove('active');
-        setTimeout(() => {
-          modal.style.display = 'none';
-          overlay.style.display = 'none';
-        }, 300);
-      }
-
-      closeModal.addEventListener('click', closeModalFunc);
-      overlay.addEventListener('click', closeModalFunc);
-
+      modalCloseBtn.addEventListener('click', function() {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Close modal when clicking outside
+      modalOverlay.addEventListener('click', function(e) {
+        if (e.target === modalOverlay) {
+          modalOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
       // Order Now button
       orderNowBtn.addEventListener('click', function() {
         const title = modal.dataset.title;
