@@ -334,7 +334,7 @@ searchBox.addEventListener('input', function() {
   });
 
 function goToPembayaran(nama, harga, gambar) {
-    window.location.href = `pesan.html?nama=${encodeURIComponent(nama)}&harga=${harga}&gambar=${encodeURIComponent(gambar)}`;
+    window.location.href = `pesasn-nolog.html?nama=${encodeURIComponent(nama)}&harga=${harga}&gambar=${encodeURIComponent(gambar)}`;
 }
 document.addEventListener('DOMContentLoaded', function() {
     feather.replace();
@@ -423,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const title = modalOverlay.dataset.title;
         const price = modalOverlay.dataset.price;
         const image = modalOverlay.dataset.image;
-        window.location.href = `pesan.html?nama=${encodeURIComponent(title)}&harga=${price}&gambar=${encodeURIComponent(image)}`;
+        window.location.href = `pesasn-nolog.html?nama=${encodeURIComponent(title)}&harga=${price}&gambar=${encodeURIComponent(image)}`;
       });
       
       // Add to Cart button
@@ -517,7 +517,7 @@ orderNowBtn.addEventListener('click', function() {
   const title = modal.dataset.title;
   const price = modal.dataset.price;
   const image = modal.dataset.image;
-  window.location.href = `pesan.html?nama=${encodeURIComponent(title)}&harga=${price}&gambar=${encodeURIComponent(image)}`;
+  window.location.href = `pesasn-nolog.html?nama=${encodeURIComponent(title)}&harga=${price}&gambar=${encodeURIComponent(image)}`;
   closeModalFunc();
 });
 
