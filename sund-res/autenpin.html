@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIN Authentication</title>
+    <link rel="stylesheet" href="./css/PIN.CSS">
+</head>
+<body>
+    <div class="auth-container">
+        <h1>Enter Your PIN</h1>
+        <div class="pin-input">
+            <input type="password" maxlength="1" id="pin1" oninput="moveToNext(this, 'pin2')">
+            <input type="password" maxlength="1" id="pin2" oninput="moveToNext(this, 'pin3')">
+            <input type="password" maxlength="1" id="pin3" oninput="moveToNext(this, 'pin4')">
+            <input type="password" maxlength="1" id="pin4" oninput="moveToNext(this, 'pin5')">
+            <input type="password" maxlength="1" id="pin5" oninput="moveToNext(this, 'pin6')">
+            <input type="password" maxlength="1" id="pin6" oninput="moveToNext(this, 'submit')">
+        </div>
+        <button class="submit-btn" id="submit" onclick="validatePin()">Submit</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        // Default PIN
+        const correctPin = "110212";
+        
+        function moveToNext(current, nextId) {
+            if (current.value.length === 1) {
+                if (nextId === 'submit') {
+                    document.getElementById(nextId).focus();
+                } else {
+                    document.getElementById(nextId).focus();
+                }
+            }
+        }
+        
+        function validatePin() {
+            const pin1 = document.getElementById('pin1').value;
+            const pin2 = document.getElementById('pin2').value;
+            const pin3 = document.getElementById('pin3').value;
+            const pin4 = document.getElementById('pin4').value;
+            const pin5 = document.getElementById('pin5').value;
+            const pin6 = document.getElementById('pin6').value;
+            
+            const enteredPin = pin1 + pin2 + pin3 + pin4 + pin5 + pin6;
+            
+            if (enteredPin === correctPin) {
+                document.getElementById('message').textContent = "Authentication successful!";
+                document.getElementById('message').style.color = "#4CAF50";
+                // Redirect setelah 1 detik untuk memberi feedback visual
+                setTimeout(() => {
+                    window.location.href = "proses.html";
+                }, 1000);
+            } else {
+                document.getElementById('message').textContent = "Incorrect PIN. Please try again.";
+                document.getElementById('message').style.color = "#d9534f";
+                // Clear all fields
+                document.querySelectorAll('.pin-input input').forEach(input => {
+                    input.value = '';
+                });
+                
+                document.getElementById('pin1').focus();
+            }
+        }
+        
+  
+        window.onload = function() {
+            document.getElementById('pin1').focus();
+        };
+    </script>
+</body>
+</html>

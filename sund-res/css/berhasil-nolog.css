@@ -115,41 +115,7 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #e57a24;
 }
-/* Tambahan style untuk star rating */
-    .star-rating {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-      margin: 10px 0;
-    }
-    
-    .star-rating input {
-      display: none;
-    }
-    
-    .star-rating label {
-      font-size: 2rem;
-      color: #ddd;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    
-    .star-rating input:checked ~ label,
-    .star-rating label:hover,
-    .star-rating label:hover ~ label {
-      color: #ffc107;
-    }
-    
-    .star-rating input:checked + label {
-      color: #ffc107;
-    }
-    
-    .rating-text {
-      margin-left: 10px;
-      font-size: 1rem;
-      color: #666;
-      align-self: center;
-    }
+
 /* Footer Styles */
 .footer {
   background-color: #2b1f14;

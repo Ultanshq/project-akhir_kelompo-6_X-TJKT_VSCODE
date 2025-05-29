@@ -162,3 +162,189 @@ body {
   color: #ff914d;
   margin-bottom: 15px;
 }
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+
+.modal.active {
+  transform: translateY(0);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-body {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.modal-image {
+  width: 50%;
+  aspect-ratio: 1/1; 
+  object-fit: cover;
+  border-radius: 10px;
+
+}
+.harga-modal {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: end;
+
+  align-self: flex-start; 
+  width: 50%; 
+}
+
+.harga-modal span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #c46104;
+  
+}
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
+
+.modal-button.keranjang {
+  background-color: #f0f0f0;
+  margin-right: 10px;
+}
+
+.modal-button.pesan {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.modal-extra-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.modal-extra-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    height: auto;
+    max-height: 80vh;
+    width: 70%;
+    left: 50%;
+    bottom: auto;
+    top: 50%;
+    transform: translate(-50%, 150%);
+    border-radius: 20px;
+    padding: 30px;
+  }
+
+  .modal.active {
+    transform: translate(-50%, -50%);
+  }
+
+  .modal-content {
+    flex-direction: row;
+    gap: 30px;
+    height: 100%;
+  }
+
+  .modal-image {
+    width: 45%;
+    height: 100%;
+    max-height: 400px;
+    margin-bottom: 0;
+    align-self: center;
+    border-radius: 15px;
+  }
+
+  .modal-details {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-header {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 28px;
+    
+    color: rgb(20, 10, 10);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .harga-modal {
+    
+    font-size: 1.2rem;
+   
+  }
+
+  .modal-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 15px;
+  }
+
+  .modal-button {
+    padding: 15px;
+    font-size: 1rem;
+  }
+}
