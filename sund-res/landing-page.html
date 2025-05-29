@@ -3,49 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page-Sund Resto</title>
-    <link rel="stylesheet" href="./css/landing.css" />
-<script src="https://unpkg.com/feather-icons"></script>
+    <title>Sund Resto - Authentic Sundanese Cuisine</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="./css/landing.css">
   </head>
   <body>
-    <div class="overlay"></div>
-<nav class="navbar">
-  <div class="navbar-left">
-    <a href="#">
-      <img src="./bahan-navbar/logo.png" alt="Sund Resto Logo" class="logo" />
-    </a>
-  </div>
-  <div class="navbar-right">
-    <button class="nav-icon" id="menu-button" aria-label="Menu">
-      <i data-feather="menu"></i>
-    </button>
-  </div>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <a href="#">
+          <img src="./bahan-navbar/logo.png" alt="Sund Resto Logo" class="logo" />
+        </a>
+      </div>
+      <div class="navbar-right">
+        <button class="nav-icon" id="menu-button" aria-label="Menu">
+          <i data-feather="menu"></i>
+        </button>
+      </div>
 
-  <div class="dropdown" id="dropdown">
-    <a href="./landing-page.html"><i data-feather="home"></i> Beranda</a>
-    <a href="./login.html"><i data-feather="log-in"></i> Masuk</a>
-    <a href="./register.html"><i data-feather="user-plus"></i> Buat Akun</a>
-    <a href="../sund-res/ttg-lomlog.html"><i data-feather="info"></i> Tentang Kami</a>
-  </div>
-</nav>
+      <div class="dropdown" id="dropdown">
+        <a href="./landing-page.html"><i data-feather="home"></i> Beranda</a>
+        <a href="./login.html"><i data-feather="log-in"></i> Masuk</a>
+        <a href="./register.html"><i data-feather="user-plus"></i> Buat Akun</a>
+        <a href="../sund-res/ttg-lomlog.html"><i data-feather="info"></i> Tentang Kami</a>
+      </div>
+    </nav>
 
- <div class="login-recommendation">
-  <div class="recommendation-content">
-    <span class="close-recommendation">&times;</span>
-    <p>Dapatkan akses penuh dengan login atau daftar sekarang!</p>
-    <div class="recommendation-buttons">
-      <a href="./login.html" class="btn-login">Masuk</a>
-      <a href="./register.html" class="btn-register">Daftar</a>
-    </div>
-  </div>
-</div>
-    <div class="buat-mesan">
-      <h2>Nikmati kemudahan pesan makanan favorit langsung dari rumahmu!</h2>
-      <a href="./dashboard-belum-login.html" class="tombol-pesan">Pesan Makanan Sekarang</a>
+    <div class="login-recommendation">
+      <div class="recommendation-content">
+        <span class="close-recommendation">&times;</span>
+        <p>Dapatkan akses penuh dengan login atau daftar sekarang!</p>
+        <div class="recommendation-buttons">
+          <a href="./login.html" class="btn-login">Masuk</a>
+          <a href="./register.html" class="btn-register">Daftar</a>
+        </div>
+      </div>
     </div>
     
-    <div class="comments">
-      <h3>Top Komentar</h3>
+    <section class="buat-mesan">
+      <h2>Nikmati kemudahan pesan makanan favorit langsung dari rumahmu!</h2>
+      <a href="./dashboard-belum-login.html" class="tombol-pesan">Pesan Makanan Sekarang</a>
+    </section>
+    
+    <section class="comments">
+      <h3>Testimoni Pelanggan</h3>
       <div class="comment-list" id="existing-comments">
         <div class="comment-card">
           <h4>Mas Fuad Kelapa 7</h4>
@@ -72,11 +74,9 @@
         </div>
       </div>
       
-      <!-- Button to open comment modal -->
       <button id="open-comment" class="comment-button">Beri Komentar</button>
-    </div>
+    </section>
     
-    <!-- Comment Modal -->
     <div class="modal" id="comment-modal">
       <div class="modal-content">
         <button class="close-modal" id="close-comment">&times;</button>
@@ -100,33 +100,125 @@
         </section>
       </div>
     </div>
-<footer class="footer">
-  <div class="footer-contact">
-    <div class="social-icons">
-      <a href="https://wa.me/6285952464007" target="_blank" class="social-link" title="WhatsApp">
-        <i data-feather="message-square" class="social-icon"></i>
-      </a>
-      <a href="tel:‪+62895810990222‬" class="social-link" title="Telepon">
-        <i data-feather="phone" class="social-icon"></i>
-      </a>
-      <a href="mailto:sultandan216@gmail.com" class="social-link" title="Email">
-        <i data-feather="mail" class="social-icon"></i>
-      </a>
-      <a href="https://www.tiktok.com/@handsomenerd_" target="_blank" class="social-link" title="TikTok">
-        <i data-feather="music" class="social-icon"></i>
-      </a>
-      <a href="https://www.instagram.com/handsomenerd_" target="_blank" class="social-link" title="Instagram">
-        <i data-feather="instagram" class="social-icon"></i>
-      </a>
-    </div>
-    <div class="footer-map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d990.8531725639893!2d106.75400726950423!3d-6.595521667357961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMzUnNDMuOSJTIDEwNsKwNDUnMTYuNyJF!5e0!3m2!1sid!2sid!4v1747558320152!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <p class="copyright">© 2025 Sund-Resto – All rights reserved.</p>
-  </div>
-</footer>
+
+    <footer class="footer">
+      <div class="footer-contact">
+        <div class="social-icons">
+          <a href="https://wa.me/6285952464007" target="_blank" class="social-link" title="WhatsApp">
+            <i data-feather="message-square" class="social-icon"></i>
+          </a>
+          <a href="tel:‪+62895810990222‬" class="social-link" title="Telepon">
+            <i data-feather="phone" class="social-icon"></i>
+          </a>
+          <a href="mailto:sultandan216@gmail.com" class="social-link" title="Email">
+            <i data-feather="mail" class="social-icon"></i>
+          </a>
+          <a href="https://www.tiktok.com/@handsomenerd_" target="_blank" class="social-link" title="TikTok">
+            <i data-feather="music" class="social-icon"></i>
+          </a>
+          <a href="https://www.instagram.com/handsomenerd_" target="_blank" class="social-link" title="Instagram">
+            <i data-feather="instagram" class="social-icon"></i>
+          </a>
+        </div>
+        <div class="footer-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d990.8531725639893!2d106.75400726950423!3d-6.595521667357961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMzUnNDMuOSJTIDEwNsKwNDUnMTYuNyJF!5e0!3m2!1sid!2sid!4v1747558320152!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p class="copyright">© 2025 Sund-Resto – All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
 
 
-    <script src="./js/landing.js"></script>
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!dropdown.contains(e.target) && e.target !== menuButton) {
+            dropdown.classList.remove('show');
+          }
+        });
+
+        // Comment modal
+        const openComment = document.getElementById('open-comment');
+        const closeComment = document.getElementById('close-comment');
+        const commentModal = document.getElementById('comment-modal');
+        
+        openComment.addEventListener('click', function() {
+          commentModal.classList.add('active');
+        });
+        
+        closeComment.addEventListener('click', function() {
+          commentModal.classList.remove('active');
+        });
+
+        // Form submission
+        const commentForm = document.getElementById('comment-form');
+        commentForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Get form values
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const comment = document.getElementById('comment').value;
+          
+          // Create new comment element
+          const newComment = document.createElement('div');
+          newComment.classList.add('comment-card');
+          newComment.innerHTML = `
+            <h4>${name}</h4>
+            <p>"${comment}"</p>
+          `;
+          
+          // Add to comments list with animation
+          newComment.style.opacity = '0';
+          newComment.style.transform = 'translateY(20px)';
+          document.getElementById('existing-comments').prepend(newComment);
+          
+          // Animate in
+          setTimeout(() => {
+            newComment.style.opacity = '1';
+            newComment.style.transform = 'translateY(0)';
+            newComment.style.transition = 'all 0.5s ease';
+          }, 100);
+          
+          // Reset form and close modal
+          commentForm.reset();
+          commentModal.classList.remove('active');
+        });
+
+        // Login recommendation
+        const loginRecommendation = document.querySelector('.login-recommendation');
+        const closeRecommendation = document.querySelector('.close-recommendation');
+        
+        // Show after 5 seconds
+        setTimeout(() => {
+          loginRecommendation.classList.add('show');
+        }, 5000);
+        
+        closeRecommendation.addEventListener('click', function() {
+          loginRecommendation.classList.remove('show');
+        });
+
+        // Close when clicking outside
+        window.addEventListener('click', function(e) {
+          if (e.target === commentModal) {
+            commentModal.classList.remove('active');
+          }
+        });
+      });
+    </script>
+    <script src="./js/menu.js"></script>
   </body>
 </html>

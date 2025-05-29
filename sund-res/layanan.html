@@ -222,54 +222,55 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      feather.replace();
+   
+  document.addEventListener('DOMContentLoaded', function() {
+    feather.replace();
+    
+    
+    
+    // FAQ accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      const icon = question.querySelector('i');
       
-      // Mobile menu toggle
-      const menuIcon = document.getElementById('menu-icon');
-      const dropdown = document.getElementById('dropdown');
-      
-      menuIcon.addEventListener('click', function() {
-        dropdown.classList.toggle('show');
-      });
-      
-      // FAQ accordion
-      const faqQuestions = document.querySelectorAll('.faq-question');
-      faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-          const answer = question.nextElementSibling;
-          const icon = question.querySelector('i');
-          
-          // Close other open answers
-          document.querySelectorAll('.faq-answer').forEach(item => {
-            if (item !== answer && item.classList.contains('active')) {
-              item.classList.remove('active');
-              item.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
-              item.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
-            }
-          });
-          
-          answer.classList.toggle('active');
-          if (answer.classList.contains('active')) {
-            icon.classList.remove('fa-chevron-down');
-            icon.classList.add('fa-chevron-up');
-          } else {
-            icon.classList.remove('fa-chevron-up');
-            icon.classList.add('fa-chevron-down');
+      question.addEventListener('click', () => {
+        // Close other open answers
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            const otherAnswer = otherItem.querySelector('.faq-answer');
+            const otherIcon = otherItem.querySelector('.faq-question i');
+            otherAnswer.classList.remove('active');
+            otherIcon.classList.remove('fa-chevron-up');
+            otherIcon.classList.add('fa-chevron-down');
           }
         });
+        
+        // Toggle current item
+        answer.classList.toggle('active');
+        if (answer.classList.contains('active')) {
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        } else {
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        }
       });
-      
-      // Form submission
-      const contactForm = document.querySelector('.contact-form');
+    });
+    
+    // Form submission
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        // Here you would typically send the form data to a server
         alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
         contactForm.reset();
       });
-    });
-  </script>
+    }
+  });
+</script>
+
   <script src="./js/menu.js"></script>
 </body>
 </html>
