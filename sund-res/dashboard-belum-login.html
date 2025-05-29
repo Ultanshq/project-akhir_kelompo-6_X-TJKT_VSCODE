@@ -49,30 +49,34 @@
     </div>
   </div>
 </div>
-   <section class="banner-slider">
-    <div class="slide active">
-        <img src="./dashboard/makanan-minuman/Nasi Goreng.jpg" alt="Banner 1" />
-        <div class="banner-text">
-            <h1>Selamat Datang di Sund Resto</h1>
-            <p>Rasakan sensasi makanan lezat kami</p>
+     <section class="banner-slider">
+    <div class="slides-container">
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="Healthy Food" />
+            <div class="banner-text">
+                <h1>Selamat Datang di Sund Resto</h1>
+                <p>Rasakan sensasi makanan lezat kami</p>
+                <button class="cta-button">Pesan Sekarang</button>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="Family Meal" />
+            <div class="banner-text">
+                <h1>Paket Hemat untuk Keluarga</h1>
+                <p>Pilih paket spesial dengan harga terbaik</p>
+                <button class="cta-button">Lihat Paket</button>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="Popular Dish" />
+            <div class="banner-text">
+                <h1>Best Seller Favorit Pelanggan</h1>
+                <p>Cicipi menu yang paling banyak diminati</p>
+                <button class="cta-button">Best Seller</button>
+            </div>
         </div>
     </div>
-    <div class="slide">
-        <img src="./css/img/tom sushi🍣.jpg" alt="Banner 2" />
-        <div class="banner-text">
-            <h1>Paket Hemat untuk Keluarga</h1>
-            <p>Pilih paket spesial dengan harga terbaik</p>
-        </div>
-    </div>
-    <div class="slide">
-        <img src="./dashboard/makanan-minuman/Lalapan Enak!.jpg" alt="Banner 3" />
-        <div class="banner-text">
-            <h1>Best Seller Favorit Pelanggan</h1>
-            <p>Cicipi menu yang paling banyak diminati</p>
-        </div>
-    </div>
-    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    <div class="dots-container"></div>
 </section>
     
 
@@ -173,6 +177,18 @@
         <p>Isi: Makanan High Value</p>
         <p class="harga">Rp 40.000</p>
       </div>
+      <div class="card" onclick="goToPembayaran('Paket Hemat 4', 20000)">
+        <img src="./dashboard/makanan-minuman/download (6).jpeg" alt="Paket Hemat 3" />
+        <h3>Paket Hemat 4</h3>
+        <p>Isi: Vegetarian Humble</p>
+        <p class="harga">Rp 20.000</p>
+      </div>
+            <div class="card" onclick="goToPembayaran('Paket Hemat 5', 30000)">
+        <img src="./dashboard/makanan-minuman/Comfort food recipes that can be made at home.jpeg" alt="Paket Hemat 3" />
+        <h3>Paket Hemat 5</h3>
+        <p>Isi: Beef Steak Crispy</p>
+        <p class="harga">Rp 30.000</p>
+      </div>
     </div>
   </section>
 
@@ -180,6 +196,13 @@
  <section class="horizontal-section" id="best-seller">
     <h2>Best Seller</h2>
     <div class="scroll-container">
+      <div class="card" onclick="goToPembayaran('Paket Hemat 5', 30000)">
+        <div class="best-seller-label">Best Seller</div>
+        <img src="./dashboard/makanan-minuman/Comfort food recipes that can be made at home.jpeg" alt="Paket Hemat 3" />
+        <h3>Paket Hemat 5</h3>
+        <p>Isi: Beef Steak Crispy</p>
+        <p class="harga">Rp 30.000</p>
+      </div>
       <div class="card" onclick="goToPembayaran('Teh Manis Dingin', 2000)">
         <div class="best-seller-label">Best Seller</div>
         <img src="./dashboard/makanan-minuman/te.jpg" alt="Teh Manis" />

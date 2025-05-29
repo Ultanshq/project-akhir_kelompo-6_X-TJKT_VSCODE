@@ -1,115 +1,649 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profil Pengguna</title>
-    <link rel="stylesheet" href="./css/profil.css" />
-    <script src="https://unpkg.com/feather-icons"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Settings Panel</title>
     <link rel="stylesheet" href="./css/profil.css">
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
     <nav class="navbar">
-      <div class="navbar-left">
-        <a href="./dashboard-sund_res.html">
-          <img src="./bahan-navbar/logo.png" alt="Sund Resto Logo" class="logo" />
-        </a>
-      </div>
-      <div class="navbar-right">
-        <a href="./keranjang.html" class="nav-icon" title="Keranjang">
-          <i data-feather="shopping-cart"></i>
-        </a>
-        <a href="./prolog-cowo.html" class="nav-icon" title="Profil">
-          <i data-feather="user"></i>
-        </a>
-        <button class="nav-icon" id="menu-button" title="Menu">
-          <i data-feather="menu"></i>
-        </button>
-      </div>
+        <div class="navbar-left">
+            <a href="./dashboard-sund_res.html">
+                <img src="./bahan-navbar/logo.png" alt="Sund Resto Logo" class="logo" />
+            </a>
+        </div>
+        <div class="navbar-right">
+            <a href="./keranjang.html" class="nav-icon" title="Keranjang">
+                <i data-feather="shopping-cart"></i>
+            </a>
+            <a href="./prolog-cowo.html" class="nav-icon" title="Profil">
+                <i data-feather="user"></i>
+            </a>
+            <button class="nav-icon" id="menu-button" title="Menu">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
 
-      <div class="dropdown" id="dropdown">
-        <a href="./dashboard-sund_res.html"><i data-feather="home"></i> Beranda</a>
-        <a href="../sund-res/ttg-dlog.html"><i data-feather="info"></i> Tentang Kami</a>
-        <a href="layanan.html"><i data-feather="settings"></i> Layanan</a>
-        <a href="#"><i data-feather="sliders"></i> Pengaturan</a>
-        <a href="landing-page.html"><i data-feather="log-out"></i> Keluar</a>
-      </div>
+        <div class="dropdown" id="dropdown">
+            <a href="./dashboard-sund_res.html"><i data-feather="home"></i> Beranda</a>
+            <a href="../sund-res/ttg-dlog.html"><i data-feather="info"></i> Tentang Kami</a>
+            <a href="layanan.html"><i data-feather="settings"></i> Layanan</a>
+            
+            <a href="landing-page.html"><i data-feather="log-out"></i> Keluar</a>
+        </div>
     </nav>
+    
+    <div class="settings-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-cog sidebar-icon"></i>
+                <h2>Profile</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#profile" class="active" data-section="profile"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#notifications" data-section="notifications"><i class="fas fa-bell"></i> Notifications</a></li>
+                <li><a href="#security" data-section="security"><i class="fas fa-lock"></i> Keamanan</a></li>
+                <li><a href="#appearance" data-section="appearance"><i class="fas fa-paint-brush"></i> Tema</a></li>
+                <li><a href="#language" data-section="language"><i class="fas fa-globe"></i> Bahasa</a></li>
+                <li><a href="#privacy" data-section="privacy"><i class="fas fa-shield-alt"></i> Privasi</a></li>
+                <li><a href="#logout" data-section="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
 
-    <div class="page-wrapper">
-      <div class="profile-card modern-card">
-        <img src="./dashboard/imgprofil/download.jpg" class="profile-pic" alt="Foto Profil" />
+        <main class="main-content">
+            <!-- Profile Section -->
+            <section id="profile-section" class="settings-section active">
+                <div class="header">
+                    <h1>Profile Settings</h1>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search settings...">
+                    </div>
+                </div>
 
-        <div class="info-item" id="nameItem">
-          <label>Nama:</label>
-          <span id="nameDisplay"></span>
-          <button id="editNameBtn" onclick="toggleEdit('name')">Ubah</button>
-        </div>
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3>Profile Information</h3>
+                    </div>
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label for="name">Nama</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name" >
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Alamat Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" >
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" class="form-control" rows="3" placeholder="Tell us about yourself">Digital designer & developer passionate about creating beautiful user experiences.</textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
 
-        <div class="info-item" id="phoneItem">
-          <label>No. Telepon:</label>
-          <span id="phoneDisplay"></span>
-          <button id="editPhoneBtn" onclick="toggleEdit('phone')">Ubah</button>
-        </div>
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3>Profile Picture</h3>
+                    </div>
+                    <form id="avatar-form">
+                        <div class="form-group">
+                            <div style="display: flex; align-items: center; gap: 20px;">
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background-color: #eee; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <i class="fas fa-user" style="font-size: 2rem; color: #777;"></i>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-outline" style="margin-right: 10px;">Upload New</button>
+                                    <button type="button" class="btn btn-outline">Remove</button>
+                                    <p style="font-size: 0.875rem; color: #6c757d; margin-top: 0.5rem;">Recommended size: 200x200 pixels</p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
 
-        <div class="info-item" id="emailItem">
-          <label>Email:</label>
-          <span id="emailDisplay"></span>
-          <button id="editEmailBtn" onclick="toggleEdit('email')">Ubah</button>
-        </div>
-      </div>
+            <!-- Notifications Section -->
+            <section id="notifications-section" class="settings-section">
+                <div class="header">
+                    <h1>Notification Settings</h1>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Cari Pengaturan...">
+                    </div>
+                </div>
 
-      <section class="history modern-card">
-        <h2>Riwayat Pesanan</h2>
-        <ul>
-          <li><span>14 Mei 2025 - Paket Hemat 2</span><span>Rp12.000</span></li>
-          <li><span>12 Mei 2025 - Ayam Bakar</span><span>Rp10.000</span></li>
-          <li><span>10 Mei 2025 - Pecel Lele</span><span>Rp12.000</span></li>
-        </ul>
-      </section>
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3>Notification Preferences</h3>
+                    </div>
+                    <form id="notifications-form">
+                        <div class="form-group">
+                            <label>Email Notifications</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Enabled</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Diskon Notifications</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Enabled</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>SMS Notifications</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Disabled</span>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Reset</button>
+                            <button type="submit" class="btn btn-primary">Perbarui Pengaturan</button>
+                        </div>
+                    </form>
+                </div>
 
-      <section class="notifications modern-card">
-        <h2>Notifikasi</h2>
-        <ul>
-          <li>[15 Mei] Promo diskon 20% untuk menu spesial Minggu ini!</li>
-          <li>[13 Mei] Pesanan Anda sudah dikonfirmasi dan sedang diproses.</li>
-          <li>[10 Mei] Selamat datang di Sund Resto, terima kasih telah mendaftar!</li>
-        </ul>
-      </section>
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3>Notification Types</h3>
+                    </div>
+                    <form id="notification-types-form">
+                        <div class="form-group">
+                            <label>New Messages</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Enabled</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Order Updates</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Enabled</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>New Menu</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Disabled</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>System Updates</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Enabled</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Security Section -->
+            <section id="security-section" class="settings-section">
+                <div class="header">
+                    <h1>Security Settings</h1>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Cari Pengaturan...">
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3>Keamanan Akun</h3>
+                    </div>
+                    <form id="security-form">
+                        <div class="form-group">
+                            <label>Two-Factor Authentication</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Disabled</span>
+                            </div>
+                            <p style="font-size: 0.875rem; color: #6c757d; margin-top: 0.5rem;">Add an extra layer of security to your account</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Ganti Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="Enter new password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Konfirmasi Password</label>
+                            <input type="password" id="confirm-password" class="form-control" placeholder="Confirm new password">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Perbarui Keamanan</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3>Tempat Anda Login</h3>
+                    </div>
+                    <div class="form-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #eee;">
+                            <div>
+                                <h4 style="margin-bottom: 0.25rem;">Chrome on Windows</h4>
+                                <p style="font-size: 0.875rem; color: #6c757d;">Last active: 2 hours ago</p>
+                            </div>
+                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;">Logout</button>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem;">
+                            <div>
+                                <h4 style="margin-bottom: 0.25rem;">HP SULTAN</h4>
+                                <p style="font-size: 0.875rem; color: #6c757d;">Last active: 1 day ago</p>
+                            </div>
+                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Appearance Section -->
+            <section id="appearance-section" class="settings-section">
+                <div class="header">
+                    <h1>Appearance Settings</h1>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Cari Pengaturan...">
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3>Tema Preferences</h3>
+                    </div>
+                    <form id="appearance-form">
+                        <div class="form-group">
+                            <label>Dark Mode</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox" id="dark-mode-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;" id="dark-mode-status">Disabled</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Theme Color</label>
+                            <div class="theme-selector">
+                                <div class="theme-option theme-light active" data-theme="light"></div>
+                                <div class="theme-option theme-dark" data-theme="dark"></div>
+                                <div class="theme-option theme-sunset" data-theme="sunset"></div>
+                                <div class="theme-option theme-ocean" data-theme="ocean"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="font-size">Ukuran Teks</label>
+                            <select id="font-size" class="form-control">
+                                <option>Kecil</option>
+                                <option selected>Sedang</option>
+                                <option>Cukup Besar</option>
+                                <option>Besar</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Reset</button>
+                            <button type="submit" class="btn btn-primary">Perbarui Tema</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Language Section -->
+            <section id="language-section" class="settings-section">
+                <div class="header">
+                    <h1>Pengaturan Bahasa</h1>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Cari Pengaturan...">
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3>Prefensi Bahasa</h3>
+                    </div>
+                    <form id="language-form">
+                        <div class="form-group">
+                            <label for="language">Pilih Bahasa</label>
+                            <select id="language" class="form-control">
+                                <option>English</option>
+                                <option>Spanish</option>
+                                <option>French</option>
+                                <option>German</option>
+                                <option>Japanese</option>
+                                <option>Indonesian</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="time-format">Time Format</label>
+                            <select id="time-format" class="form-control">
+                                <option>12-hour (3:45 PM)</option>
+                                <option>24-hour (15:45)</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Reset</button>
+                            <button type="submit" class="btn btn-primary">Perbarui Bahasa</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Privacy Section -->
+            <section id="privacy-section" class="settings-section">
+                <div class="header">
+                    <h1>Privacy Settings</h1>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Cari Pengaturan...">
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3>Pengaturan Privasi</h3>
+                    </div>
+                    <form id="privacy-form">
+                        <div class="form-group">
+                            <label>Tampilkan Profil di Hasil Pencarian</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Enabled</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Izinkan Iklan yang Dipersonalisasi</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Disabled</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Berbagi Data untuk Analytics</label>
+                            <div style="display: flex; align-items: center;">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Enabled</span>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Reset</button>
+                            <button type="submit" class="btn btn-primary">Perbarui Pengaturan</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3>Data Management</h3>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-outline" style="width: 100%; margin-bottom: 1rem;">
+                            <i class="fas fa-download" style="margin-right: 0.5rem;"></i> Download Your Data
+                        </button>
+                        <button class="btn btn-outline" style="width: 100%; margin-bottom: 1rem;">
+                            <i class="fas fa-trash" style="margin-right: 0.5rem;"></i> Delete Account
+                        </button>
+                        <p style="font-size: 0.875rem; color: #6c757d;">Warning: Account deletion is permanent and cannot be undone.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Logout Section -->
+            <section id="logout-section" class="settings-section">
+                <div class="header">
+                    <h1>Logout</h1>
+                </div>
+
+                <div class="settings-card">
+                    <div style="text-align: center; padding: 3rem 0;">
+                        <i class="fas fa-sign-out-alt" style="font-size: 3rem; color: var(--danger-color); margin-bottom: 1.5rem;"></i>
+                        <h2 style="margin-bottom: 1rem;">Are you sure you want to logout?</h2>
+                        <p style="margin-bottom: 2rem; color: #6c757d;">You'll need to sign in again to access your account.</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem;">
+                            <button class="btn btn-outline" style="width: 150px;">Cancel</button>
+                            <button class="btn btn-primary" style="width: 150px; background-color: var(--danger-color); border-color: var(--danger-color);">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <footer class="footer">
-      <div class="footer-contact">
-        <div class="social-icons">
-          <a href="https://wa.me/6285952464007" target="_blank" class="social-link" title="WhatsApp">
-            <i data-feather="message-square" class="social-icon"></i>
-          </a>
-          <a href="tel:‪+62895810990222‬" class="social-link" title="Telepon">
-            <i data-feather="phone" class="social-icon"></i>
-          </a>
-          <a href="mailto:sultandan216@gmail.com" class="social-link" title="Email">
-            <i data-feather="mail" class="social-icon"></i>
-          </a>
-          <a href="https://www.tiktok.com/@handsomenerd_" target="_blank" class="social-link" title="TikTok">
-            <i data-feather="music" class="social-icon"></i>
-          </a>
-          <a href="https://www.instagram.com/handsomenerd_" target="_blank" class="social-link" title="Instagram">
-            <i data-feather="instagram" class="social-icon"></i>
-          </a>
-        </div>
-        <div class="footer-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d990.8531725639893!2d106.75400726950423!3d-6.595521667357961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMzUnNDMuOSJTIDEwNsKwNDUnMTYuNyJF!5e0!3m2!1sid!2sid!4v1747558320152!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <p class="copyright">© 2025 Sund-Resto – All rights reserved.</p>
-      </div>
-    </footer>
+ 
+        
+ <script>
+    // Initialize feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+        // Replace feather icons if available
+        if (typeof feather !== "undefined") {
+            feather.replace();
+        }
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        feather.replace();
-      });
-    </script>
-    <script src="./js/profdata.js"></script>
-    <script src="./js/menu.js"></script>
-  </body>
-</html>
+        // Toggle dropdown menu in navbar
+        const menuButton = document.getElementById("menu-button");
+        const dropdown = document.getElementById("dropdown");
+
+        if (menuButton && dropdown) {
+            menuButton.addEventListener("click", (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle("show");
+                menuButton.classList.toggle("active");
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function(event) {
+                if (!menuButton.contains(event.target) && !dropdown.contains(event.target)) {
+                    dropdown.classList.remove("show");
+                    menuButton.classList.remove("active");
+                }
+            });
+        }
+
+        // Sidebar navigation
+        const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+        const sections = document.querySelectorAll('.settings-section');
+
+        if (sidebarLinks.length > 0 && sections.length > 0) {
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Remove 'active' from all links and sections
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(section => section.classList.remove('active'));
+
+                    // Add 'active' to clicked link
+                    link.classList.add('active');
+
+                    // Show corresponding section
+                    const sectionId = link.getAttribute('data-section') + '-section';
+                    const activeSection = document.getElementById(sectionId);
+                    if (activeSection) {
+                        activeSection.classList.add('active');
+                        
+                        // Store the active section in localStorage
+                        localStorage.setItem('activeSettingsSection', sectionId);
+                    }
+                });
+            });
+
+            // Check for saved active section
+            const savedSection = localStorage.getItem('activeSettingsSection');
+            if (savedSection) {
+                const savedLink = document.querySelector(`.sidebar-menu a[data-section="${savedSection.replace('-section', '')}"]`);
+                if (savedLink) {
+                    savedLink.click();
+                }
+            }
+        }
+
+        // Form handlers with validation
+        const handleFormSubmit = (formId, successMessage) => {
+            const form = document.getElementById(formId);
+            if (form) {
+                form.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    
+                    // Simple form validation
+                    let isValid = true;
+                    const requiredInputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+                    
+                    requiredInputs.forEach(input => {
+                        if (!input.value.trim()) {
+                            input.style.borderColor = 'var(--danger-color)';
+                            isValid = false;
+                        } else {
+                            input.style.borderColor = '';
+                        }
+                    });
+
+                    if (isValid) {
+                        // In a real app, you would send data to server here
+                        alert(successMessage);
+                    } else {
+                        alert('Please fill in all required fields.');
+                    }
+                });
+            }
+        };
+
+        // Initialize form handlers
+        handleFormSubmit("profile-form", "Profile changes saved successfully.");
+        handleFormSubmit("notifications-form", "Notification preferences updated.");
+        handleFormSubmit("security-form", "Security settings updated.");
+        handleFormSubmit("appearance-form", "Appearance preferences saved.");
+        handleFormSubmit("language-form", "Language settings updated.");
+        handleFormSubmit("privacy-form", "Privacy preferences saved.");
+
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeStatus = document.getElementById('dark-mode-status');
+        
+        if (darkModeToggle && darkModeStatus) {
+            // Check for saved preference
+            const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+            
+            // Apply saved preference
+            if (savedDarkMode) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                darkModeStatus.textContent = 'Enabled';
+            }
+            
+            // Toggle dark mode
+            darkModeToggle.addEventListener('change', function() {
+                document.body.classList.toggle('dark-mode');
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                darkModeStatus.textContent = isDarkMode ? 'Enabled' : 'Disabled';
+                
+                // Save preference
+                localStorage.setItem('darkMode', isDarkMode);
+            });
+        }
+
+        // Theme selector functionality
+        const themeOptions = document.querySelectorAll('.theme-option');
+        if (themeOptions.length > 0) {
+            // Check for saved theme
+            const savedTheme = localStorage.getItem('theme');
+            
+            // Apply saved theme
+            if (savedTheme) {
+                document.querySelector(`.theme-option[data-theme="${savedTheme}"]`)?.classList.add('active');
+            }
+            
+            // Handle theme selection
+            themeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    themeOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const theme = this.getAttribute('data-theme');
+                    localStorage.setItem('theme', theme);
+                    
+                    // In a real app, you would apply the theme here
+                    console.log(`Theme changed to ${theme}`);
+                });
+            });
+        }
+
+        // Logout button functionality
+        const logoutSection = document.getElementById('logout-section');
+        if (logoutSection) {
+            const logoutBtn = logoutSection.querySelector('.btn-primary');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (confirm('Are you sure you want to logout?')) {
+                        // In a real app, you would handle logout here
+                        alert('You have been logged out.');
+                        window.location.href = 'landing-page.html';
+                    }
+                });
+            }
+        }
+
+        // Delete account button functionality
+        const deleteAccountBtn = document.querySelector('.btn-outline i.fa-trash')?.closest('button');
+        if (deleteAccountBtn) {
+            deleteAccountBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+                    // In a real app, you would handle account deletion here
+                    alert('Your account has been scheduled for deletion.');
+                }
+            });
+        }
+    });
+
+</script>
+
+
+          
