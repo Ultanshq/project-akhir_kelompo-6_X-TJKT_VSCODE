@@ -4,56 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pesanan Berhasil - Sund Resto</title>
-  <link rel="stylesheet" href="./css/berhasil-nolog.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
   <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="./css/berhasil.css">
 </head>
 <body>
   <div class="container">
+    <div class="print-only">
+      <img src="https://via.placeholder.com/150x50?text=Sund+Resto" alt="Sund Resto Logo" style="margin-bottom: 1rem;">
+      <p style="text-align: center; margin-bottom: 1rem;">Jl. Resto No. 123, Kota Anda<br>Telp: (021) 1234567</p>
+    </div>
+    
     <h1>Pesanan Anda Telah Dibuat!</h1>
-    <p>Terima kasih telah memesan di Sund Resto.</p>
-    <p>Silakan siapkan uang untuk pembayaran saat pesanan tiba.</p>
-
+    <p style="text-align: center;">Terima kasih telah memesan di Sund Resto.</p>
+    
     <div class="order-info">
       <p><strong>Menu:</strong> <span id="nama-menu">-</span></p>
       <p><strong>Harga:</strong> Rp <span id="harga-menu">-</span></p>
       <p><strong>Kode Transaksi:</strong> <span id="kode-transaksi">-</span></p>
+      <p><strong>Tanggal:</strong> <span id="order-date">-</span></p>
+      <p class="print-only"><strong>Status:</strong> Menunggu Pembayaran</p>
     </div>
     
-    <div class="btnback"> 
-      <button><a href="./dashboard-belum-login.html">Kembali ke Dashboard</a></button>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="window.print()">
+        <i data-feather="printer"></i> Cetak Invoice
+      </button>
+      <a href="./dashboard-belum-login.html" class="btn btn-outline">
+        <i data-feather="home"></i> Kembali ke Dashboard
+      </a>
     </div>
     
-    <p>Silahkan Login Terlebih dahulu demi keamanan akun anda</p>
-    
-    <div class="btnlack">
-      <button><a href="landing-page.html">Login/Register</a></button>
-    </div>
-
-    <h2>Berikan Review & Rating Makanan</h2>
-
-    <form id="review-form">
-      <label for="rating">Rating:</label>
-      <select id="rating" required>
-        <option value="" disabled selected>Pilih rating</option>
-        <option value="5">★★★★★ - Sangat Baik</option>
-        <option value="4">★★★★ - Baik</option>
-        <option value="3">★★★ - Cukup</option>
-        <option value="2">★★ - Kurang</option>
-        <option value="1">★ - Buruk</option>
-      </select>
-
-      <label for="review">Review (optional):</label>
-      <textarea id="review" rows="4" placeholder="Tulis ulasan Anda di sini..."></textarea>
-
-      <button type="submit">Kirim Review</button>
-    </form>
-
-    <div id="thankyou-message" style="display:none; margin-top: 15px; color: green;">
-      Terima kasih atas review Anda!
+    <div class="no-print">
+      <h2>Berikan Review & Rating Makanan</h2>
+      
+      <form id="review-form">
+        <label for="rating">Rating:</label>
+        <div class="star-rating">
+          <input type="radio" id="star5" name="rating" value="5" />
+          <label for="star5" title="Sangat Baik">★</label>
+          <input type="radio" id="star4" name="rating" value="4" />
+          <label for="star4" title="Baik">★</label>
+          <input type="radio" id="star3" name="rating" value="3" />
+          <label for="star3" title="Cukup">★</label>
+          <input type="radio" id="star2" name="rating" value="2" />
+          <label for="star2" title="Kurang">★</label>
+          <input type="radio" id="star1" name="rating" value="1" />
+          <label for="star1" title="Buruk">★</label>
+          <span class="rating-text">Pilih rating</span>
+        </div>
+        
+        <label for="review">Review (optional):</label>
+        <textarea id="review" rows="4" placeholder="Tulis ulasan Anda di sini..."></textarea>
+        
+        <button type="submit" class="btn btn-primary">
+          <i data-feather="send"></i> Kirim Review
+        </button>
+      </form>
+      
+      <div id="thankyou-message">
+        <i data-feather="check-circle"></i> Terima kasih atas review Anda!
+      </div>
     </div>
   </div>
-
-  <footer class="footer">
+  
+  <footer class="footer no-print">
     <div class="footer-contact">
       <div class="social-icons">
         <a href="https://wa.me/6285952464007" target="_blank" class="social-link" title="WhatsApp">
@@ -78,30 +93,70 @@
       <p class="copyright">© 2025 Sund-Resto – All rights reserved.</p>
     </div>
   </footer>
-
+  
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       feather.replace();
       
-      const nama = localStorage.getItem('namaMenu');
-      const harga = localStorage.getItem('hargaMenu');
-
+      // Get order details from localStorage
+      const nama = localStorage.getItem('namaMenu') || 'Nasi Goreng Spesial';
+      const harga = localStorage.getItem('hargaMenu') || '35.000';
+      
+      // Generate transaction code and date
+      function generateTransactionCode() {
+        return 'SUND-' + Math.floor(Math.random() * (999999 - 100000) + 100000);
+      }
+      
+      const kodeTransaksi = generateTransactionCode();
+      const now = new Date();
+      const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      };
+      const orderDate = now.toLocaleDateString('id-ID', options);
+      
+      // Display order information
       document.getElementById('nama-menu').textContent = nama;
       document.getElementById('harga-menu').textContent = harga;
-
-      function generateTransactionCode() {
-        return Math.floor(Math.random() * (99999999 - 10000000) + 10000000);
-      }
-
-      const kodeTransaksi = generateTransactionCode();
       document.getElementById('kode-transaksi').textContent = kodeTransaksi;
-
+      document.getElementById('order-date').textContent = orderDate;
+      
+      // Star rating functionality
+      const stars = document.querySelectorAll('.star-rating input');
+      const ratingText = document.querySelector('.rating-text');
+      
+      stars.forEach(star => {
+        star.addEventListener('change', function() {
+          const ratingValue = this.value;
+          const ratingDescriptions = {
+            '1': '★ - Buruk',
+            '2': '★★ - Kurang',
+            '3': '★★★ - Cukup',
+            '4': '★★★★ - Baik',
+            '5': '★★★★★ - Sangat Baik'
+          };
+          ratingText.textContent = ratingDescriptions[ratingValue];
+        });
+      });
+      
+      // Review form submission
       const form = document.getElementById('review-form');
       form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const rating = document.getElementById('rating').value;
+        const rating = document.querySelector('input[name="rating"]:checked')?.value;
+        
+        if (!rating) {
+          alert('Silakan beri rating dengan memilih bintang');
+          return;
+        }
+        
         const review = document.getElementById('review').value;
-
+        
+        // Save review to localStorage
         const reviews = JSON.parse(localStorage.getItem('sund_resto_reviews') || '[]');
         reviews.push({
           menu: nama,
@@ -110,9 +165,19 @@
           tanggal: new Date().toISOString()
         });
         localStorage.setItem('sund_resto_reviews', JSON.stringify(reviews));
-
+        
+        // Show thank you message
         document.getElementById('thankyou-message').style.display = 'block';
         form.reset();
+        ratingText.textContent = 'Pilih rating';
+        
+        // Refresh icons (Feather Icons)
+        feather.replace();
+      });
+      
+      // Print button functionality
+      document.querySelector('.print-btn').addEventListener('click', function() {
+        window.print();
       });
     });
   </script>
