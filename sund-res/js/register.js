@@ -27,7 +27,7 @@ document
 
     window.location.href = "dashboard-sund_res.html";
   });
-// Initialize Feather Icons
+
         feather.replace();
         
         // Navbar dropdown functionality
