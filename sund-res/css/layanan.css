@@ -240,11 +240,12 @@ a {
   border-bottom: none;
 }
 
-/* Page Header */
+
 .page-header {
+  position: relative;
   text-align: center;
   padding: 60px 0 40px;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/header-bg.jpg');
+  background: linear-gradient(rgba(207, 121, 8, 0.5), rgba(240, 181, 54, 0.5)), url('./img/Foto\ Ramen.jpg');
   background-size: cover;
   background-position: center;
   color: var(--white);
@@ -261,7 +262,7 @@ a {
   margin: 0 auto;
 }
 
-/* Services Section */
+
 .services-section {
   padding: 60px 0;
 }
@@ -302,7 +303,6 @@ a {
   color: var(--gray);
 }
 
-/* Contact Section */
 .contact-section {
   padding: 60px 0;
 }
