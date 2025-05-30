@@ -142,7 +142,7 @@
       align-self: center;
     }
     
-    /* Review Form */
+    
     #review-form {
       margin-top: 1.5rem;
     }
@@ -170,9 +170,7 @@
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
     }
-    
-    /* Thank You Message */
-    #thankyou-message {
+  #thankyou-message {
       background: rgba(40, 167, 69, 0.1);
       color: var(--success);
       padding: 1rem;
@@ -183,7 +181,8 @@
       display: none;
     }
     
-    /* Footer */
+  
+
     .footer {
       background: var(--secondary);
       color: white;
@@ -282,7 +281,7 @@
       display: none;
     }
     
-    /* Responsive */
+   
     @media (max-width: 768px) {
       .container {
         margin: 1rem;

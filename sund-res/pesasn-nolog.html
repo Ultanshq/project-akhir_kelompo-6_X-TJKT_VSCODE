@@ -12,7 +12,6 @@
      <nav class="navbar">
   <div class="navbar-left">
     <a href="./dashboard-belum-login.html">
-      <!-- Keep your logo as PNG since it's likely more complex -->
       <img src="./bahan-navbar/logo.png" alt="Sund Resto Logo" class="logo" />
     </a>
   </div>
@@ -143,7 +142,6 @@
 </footer>
 
 <script>
- // Variabel global untuk menyimpan harga
   let originalPrice = 0;
   let discountApplied = false;
 
@@ -155,18 +153,15 @@
     const harga = params.get('harga');
     const gambar = params.get('gambar');
 
-    // Tampilkan data menu
     document.getElementById('nama-menu').textContent = nama;
     document.getElementById('harga-menu').textContent = harga;
     document.getElementById('harga-asli').value = harga;
     originalPrice = parseInt(harga.replace(/\D/g, '')); // Simpan harga asli sebagai number
     
-    // Tampilkan gambar menu jika ada
     if (gambar) {
       document.getElementById('menu-image').src = gambar;
     }
     
-    // Simpan di localStorage
     localStorage.setItem('namaMenu', nama);
     localStorage.setItem('hargaMenu', harga);
     if (gambar) {
@@ -178,7 +173,6 @@
 
   function selectPayment(method) {
     document.getElementById('metode-bayar').value = method;
-    // Update visual selection
     const cards = document.querySelectorAll('.payment-card');
     cards.forEach(card => {
       card.classList.remove('selected');
@@ -200,7 +194,6 @@
       return;
     }
     
-    // Reset harga ke harga asli jika ada perubahan
     if (discountApplied) {
       originalPriceElement.style.display = 'inline';
       discountedPriceElement.style.display = 'none';
@@ -208,14 +201,14 @@
       discountApplied = false;
     }
     
-    // Validasi voucher dan hitung diskon
     let discount = 0;
     let validVoucher = false;
     
-    // Daftar voucher yang valid
+
     const validVouchers = {
       'DISKON10': 0.1,  // Diskon 10%
-      'SUNDRESTO': 0.2  // Diskon 20%
+      'SUNDRESTO': 0.2,  // Diskon 20%
+      'LOGINDULU' : 0.01 // diskon 1%
     };
     
     if (validVouchers.hasOwnProperty(voucherCode)) {
@@ -224,16 +217,12 @@
     }
     
     if (validVoucher) {
-      // Hitung harga setelah diskon
       const discountedPrice = originalPrice * (1 - discount);
-      
-      // Tampilkan harga diskon
       discountedPriceElement.textContent = `Rp ${discountedPrice.toLocaleString('id-ID')}`;
       discountedPriceElement.style.display = 'inline';
       originalPriceElement.style.textDecoration = 'line-through';
       originalPriceElement.style.color = '#888';
       
-      // Simpan harga diskon
       document.getElementById('harga-diskon').value = discountedPrice;
       discountApplied = true;
       
@@ -246,7 +235,6 @@
   }
 
   function bayar() {
-    // Validasi form
     const kecamatan = document.getElementById('kecamatan').value;
     const alamat = document.getElementById('alamat').value;
     const patokan = document.getElementById('patokan').value;
@@ -257,11 +245,9 @@
       return;
     }
 
-    // Simpan data pembayaran
     const voucher = document.getElementById('voucher').value;
     localStorage.setItem('metodeBayar', metodeBayar);
     
-    // Simpan harga yang sesuai (diskon atau asli)
     if (discountApplied) {
       const discountedPrice = document.getElementById('harga-diskon').value;
       localStorage.setItem('hargaMenu', discountedPrice);

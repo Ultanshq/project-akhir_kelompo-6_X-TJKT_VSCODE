@@ -80,7 +80,7 @@ body {
   }
 
   .nav-icon:hover {
-    color: #ff5722; /* Orange color for hover */
+    color: #ff5722; 
   }
 
   .nav-icon i {
@@ -95,7 +95,7 @@ body {
     padding: 5px;
   }
 
-  /* Dropdown Styles */
+ 
    .dropdown {
     display: none;
     position: absolute;
@@ -123,18 +123,18 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 25px; /* Padding lebih besar */
+    padding: 12px 25px; 
     color: #333;
     text-decoration: none;
     transition: all 0.3s;
-    font-size: 15px; /* Font lebih besar */
+    font-size: 15px; 
     border-left: 4px solid transparent;
   }
 
   .dropdown a:hover {
     background: #f8f8f8;
     border-left: 4px solid #ff5722;
-    padding-left: 21px; /* Untuk kompensasi border */
+    padding-left: 21px; 
   }
 
   .dropdown a i {
@@ -143,7 +143,7 @@ body {
     color: #ff5722;
   }
 
-  /* Animasi icon burger saat aktif */
+ 
   #menu-button.active i {
     transform: rotate(90deg);
   }
@@ -190,7 +190,7 @@ z-index: 100;
   margin: 8px 0;
 }
 
-/* Footer Styles */
+
 .footer {
   background-color: #2b1f14;
   color: white;

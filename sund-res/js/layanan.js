@@ -5,7 +5,7 @@ menuIcon.addEventListener("click", () => {
   dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
 });
 
-// Tutup dropdown jika klik di luar menu
+
 document.addEventListener("click", (e) => {
   if (!menuIcon.contains(e.target) && !dropdown.contains(e.target)) {
     dropdown.style.display = "none";

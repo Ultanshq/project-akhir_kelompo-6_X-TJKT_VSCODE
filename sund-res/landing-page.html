@@ -129,10 +129,8 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Initialize Feather Icons
         feather.replace();
         
-        // Navbar scroll effect
         const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', function() {
           if (window.scrollY > 50) {
@@ -143,14 +141,12 @@
         });
 
 
-        // Close dropdown when clicking outside
         document.addEventListener('click', function(e) {
           if (!dropdown.contains(e.target) && e.target !== menuButton) {
             dropdown.classList.remove('show');
           }
         });
 
-        // Comment modal
         const openComment = document.getElementById('open-comment');
         const closeComment = document.getElementById('close-comment');
         const commentModal = document.getElementById('comment-modal');
@@ -163,17 +159,14 @@
           commentModal.classList.remove('active');
         });
 
-        // Form submission
         const commentForm = document.getElementById('comment-form');
         commentForm.addEventListener('submit', function(e) {
           e.preventDefault();
           
-          // Get form values
           const name = document.getElementById('name').value;
           const email = document.getElementById('email').value;
           const comment = document.getElementById('comment').value;
           
-          // Create new comment element
           const newComment = document.createElement('div');
           newComment.classList.add('comment-card');
           newComment.innerHTML = `
@@ -181,37 +174,32 @@
             <p>"${comment}"</p>
           `;
           
-          // Add to comments list with animation
           newComment.style.opacity = '0';
           newComment.style.transform = 'translateY(20px)';
           document.getElementById('existing-comments').prepend(newComment);
           
-          // Animate in
           setTimeout(() => {
             newComment.style.opacity = '1';
             newComment.style.transform = 'translateY(0)';
             newComment.style.transition = 'all 0.5s ease';
           }, 100);
           
-          // Reset form and close modal
           commentForm.reset();
           commentModal.classList.remove('active');
         });
 
-        // Login recommendation
+
         const loginRecommendation = document.querySelector('.login-recommendation');
         const closeRecommendation = document.querySelector('.close-recommendation');
         
-        // Show after 5 seconds
         setTimeout(() => {
           loginRecommendation.classList.add('show');
-        }, 5000);
+        }, 3000);
         
         closeRecommendation.addEventListener('click', function() {
           loginRecommendation.classList.remove('show');
         });
 
-        // Close when clicking outside
         window.addEventListener('click', function(e) {
           if (e.target === commentModal) {
             commentModal.classList.remove('active');

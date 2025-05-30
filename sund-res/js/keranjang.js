@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
       feather.replace();
       
-// Initialize Feather Icons
+
         feather.replace();
         
-        // Navbar dropdown functionality
         const menuButton = document.getElementById('menu-button');
         const dropdown = document.getElementById('dropdown');
         

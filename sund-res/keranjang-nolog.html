@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="./css/keranjang.css" />
   <script src="https://unpkg.com/feather-icons"></script>
   <style>
-    /* Temporary inline styles for demo - should be in your CSS file */
     .overlay {
       position: fixed;
       top: 0;
@@ -147,10 +146,8 @@
   document.addEventListener('DOMContentLoaded', function() {
       feather.replace();
       
-// Initialize Feather Icons
         feather.replace();
-        
-        // Navbar dropdown functionality
+
         const menuButton = document.getElementById('menu-button');
         const dropdown = document.getElementById('dropdown');
         
@@ -160,14 +157,13 @@
             dropdown.classList.toggle('show');
           });
           
-          // Close dropdown when clicking outside
           document.addEventListener('click', function(e) {
             if (!menuButton.contains(e.target) && !dropdown.contains(e.target)) {
               dropdown.classList.remove('show');
             }
           });
         }
-      // Modal functionality
+
       const modal = document.getElementById('foodModal');
       const modalTitle = document.getElementById('modalTitle');
       const modalImage = document.getElementById('modalImage');
@@ -176,36 +172,32 @@
       const orderNowBtn = document.getElementById('orderNow');
       const addToCartBtn = document.getElementById('addToCart');
 
-      // Card click handlers
       document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', function(e) {
           e.preventDefault();
           
-          // Get data from the clicked card
           const title = this.querySelector('h3').textContent;
           const price = this.querySelector('.harga').textContent;
           const imageSrc = this.querySelector('img').src;
           
-          // Set modal content
           modalTitle.textContent = title;
           modalPrice.textContent = price;
           modalImage.src = imageSrc;
           
-          // Show modal and overlay
           overlay.style.display = 'block';
           modal.style.display = 'block';
           setTimeout(() => {
             modal.classList.add('active');
           }, 10);
           
-          // Store current item data in modal for later use
+          
           modal.dataset.title = title;
           modal.dataset.price = price.replace(/\D/g, ''); // Get numeric price only
           modal.dataset.image = imageSrc;
         });
       });
 
-      // Close modal
+      
       function closeModalFunc() {
         modal.classList.remove('active');
         setTimeout(() => {
@@ -217,7 +209,6 @@
       closeModal.addEventListener('click', closeModalFunc);
       overlay.addEventListener('click', closeModalFunc);
 
-      // Order Now button
       orderNowBtn.addEventListener('click', function() {
         const title = modal.dataset.title;
         const price = modal.dataset.price;
@@ -226,13 +217,11 @@
         closeModalFunc();
       });
 
-      // Add to Cart button
       addToCartBtn.addEventListener('click', function() {
         alert('Item ditambahkan ke keranjang!');
         closeModalFunc();
       });
 
-      // Initialize feather icons when modal is shown
       modal.addEventListener('shown.bs.modal', function() {
         feather.replace();
       });

@@ -1,14 +1,14 @@
 :root {
-            --primary-color: #c47104;
-            --secondary-color: #a86c26;
-            --dark-color: #1a1a2e;
-            --light-color: #f8f9fa;
-            --success-color: #4cc9f0;
-            --danger-color: #f72585;
-            --warning-color: #f8961e;
-            --border-radius: 12px;
-            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+--primary-color: #c47104;
+--secondary-color: #a86c26;
+--dark-color: #1a1a2e;
+--light-color: #f8f9fa;
+--success-color: #4cc9f0;
+--danger-color: #f72585;
+--warning-color: #f8961e;
+--border-radius: 12px;
+--box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+ --transition: all 0.3s ease;
         }
 
         * {
@@ -22,7 +22,7 @@
             background-color: #f5f7ff;
             color: var(--dark-color);
             line-height: 1.6;
-            padding-top: 70px; /* Untuk navbar fixed */
+            padding-top: 70px; 
         }
         
         .navbar {
@@ -96,7 +96,7 @@
             padding: 5px;
         }
 
-        /* Dropdown Styles */
+       
         .dropdown {
             display: none;
             position: absolute;

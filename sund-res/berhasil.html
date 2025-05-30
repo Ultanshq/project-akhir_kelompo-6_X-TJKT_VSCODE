@@ -98,11 +98,9 @@
     document.addEventListener('DOMContentLoaded', function() {
       feather.replace();
       
-      // Get order details from localStorage
       const nama = localStorage.getItem('namaMenu') || 'Nasi Goreng Spesial';
       const harga = localStorage.getItem('hargaMenu') || '35.000';
       
-      // Generate transaction code and date
       function generateTransactionCode() {
         return 'SUND-' + Math.floor(Math.random() * (999999 - 100000) + 100000);
       }
@@ -119,13 +117,11 @@
       };
       const orderDate = now.toLocaleDateString('id-ID', options);
       
-      // Display order information
       document.getElementById('nama-menu').textContent = nama;
       document.getElementById('harga-menu').textContent = harga;
       document.getElementById('kode-transaksi').textContent = kodeTransaksi;
       document.getElementById('order-date').textContent = orderDate;
       
-      // Star rating functionality
       const stars = document.querySelectorAll('.star-rating input');
       const ratingText = document.querySelector('.rating-text');
       
@@ -133,7 +129,7 @@
         star.addEventListener('change', function() {
           const ratingValue = this.value;
           const ratingDescriptions = {
-            '1': '★ - Buruk',
+            '1': '★ - Minimal Login -SULTAN SI DEVELOPER',
             '2': '★★ - Kurang',
             '3': '★★★ - Cukup',
             '4': '★★★★ - Baik',
@@ -143,7 +139,6 @@
         });
       });
       
-      // Review form submission
       const form = document.getElementById('review-form');
       form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -156,7 +151,6 @@
         
         const review = document.getElementById('review').value;
         
-        // Save review to localStorage
         const reviews = JSON.parse(localStorage.getItem('sund_resto_reviews') || '[]');
         reviews.push({
           menu: nama,
@@ -166,16 +160,14 @@
         });
         localStorage.setItem('sund_resto_reviews', JSON.stringify(reviews));
         
-        // Show thank you message
+   
         document.getElementById('thankyou-message').style.display = 'block';
         form.reset();
         ratingText.textContent = 'Pilih rating';
         
-        // Refresh icons (Feather Icons)
         feather.replace();
       });
       
-      // Print button functionality
       document.querySelector('.print-btn').addEventListener('click', function() {
         window.print();
       });

@@ -192,8 +192,8 @@
 </head>
 <body>
     <div class="auth-container" id="authContainer">
-        <h1>Secure Access</h1>
-        <p class="subtitle">Enter your 6-digit security PIN</p>
+        <h1>autentikasi 2 faktor</h1>
+        <p class="subtitle">masukkan 6 digit kode pin anda</p>
         
         <div class="pin-input">
             <input type="password" maxlength="1" id="pin1" inputmode="numeric" pattern="[0-9]*" 
@@ -213,41 +213,36 @@
         <button class="submit-btn" id="submit" onclick="validatePin()" disabled>Continue</button>
         
         <div class="message" id="message"></div>
-        <div class="attempts" id="attempts">Attempts remaining: 3</div>
+        <div class="attempts" id="attempts">sisa kesempatan: 3</div>
         
         <div class="biometric-option">
             <button class="biometric-btn" onclick="useBiometric()">
                 <i class="bi bi-fingerprint"></i>
-                Use biometric authentication instead
+                gunakan sidik jari anda
             </button>
         </div>
     </div>
 
     <script>
-        // Configuration
         const CORRECT_PIN = "110212";
         let attemptsLeft = 3;
         let lockUntil = 0;
         
-        // DOM Elements
         const pinInputs = document.querySelectorAll('.pin-input input');
         const submitBtn = document.getElementById('submit');
         const messageEl = document.getElementById('message');
         const attemptsEl = document.getElementById('attempts');
         const authContainer = document.getElementById('authContainer');
         
-        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('pin1').focus();
             updateSubmitButton();
             
-            // Check if biometric is available (simulated)
             if (!isBiometricAvailable()) {
                 document.querySelector('.biometric-option').style.display = 'none';
             }
         });
         
-        // Handle PIN input
         function moveToNext(current, nextId) {
             if (current.value.length === 1) {
                 if (nextId === 'submit') {
@@ -264,22 +259,18 @@
             updateSubmitButton();
         }
         
-        // Handle backspace
         function handleBackspace(current, prevId) {
             if (event.key === 'Backspace' && current.value.length === 0 && prevId) {
                 document.getElementById(prevId).focus();
             }
         }
         
-        // Update submit button state
         function updateSubmitButton() {
             const isComplete = Array.from(pinInputs).every(input => input.value.length === 1);
             submitBtn.disabled = !isComplete;
         }
         
-        // Validate PIN
         function validatePin() {
-            // Check if locked
             if (lockUntil > Date.now()) {
                 const remainingTime = Math.ceil((lockUntil - Date.now()) / 1000);
                 showMessage(`Too many attempts. Try again in ${remainingTime} seconds.`, 'error');
@@ -289,36 +280,29 @@
             const enteredPin = Array.from(pinInputs).map(input => input.value).join('');
             
             if (enteredPin === CORRECT_PIN) {
-                // Successful authentication
-                showMessage("Authentication successful! Redirecting...", 'success');
+                showMessage("Wih bener tunggu yakk", 'success');
                 pinInputs.forEach(input => input.classList.add('filled'));
                 
-                // Simulate processing
                 submitBtn.disabled = true;
                 submitBtn.textContent = "Processing...";
                 
-                // Redirect after delay
                 setTimeout(() => {
                     window.location.href = "proses.html";
                 }, 1000);
             } else {
-                // Failed attempt
                 attemptsLeft--;
                 
                 if (attemptsLeft <= 0) {
-                    // Lock the system for 30 seconds
                     lockUntil = Date.now() + 30000;
                     attemptsLeft = 3;
                     showMessage("Too many incorrect attempts. System locked for 30 seconds.", 'error');
                     authContainer.classList.add('shake');
                     
-                    // Disable all inputs
                     pinInputs.forEach(input => {
                         input.disabled = true;
                         input.classList.remove('filled');
                     });
                     
-                    // Re-enable after lock period
                     setTimeout(() => {
                         pinInputs.forEach(input => input.disabled = false);
                         document.getElementById('pin1').focus();
@@ -345,7 +329,6 @@
             }
         }
         
-        // Update attempts display
         function updateAttemptsDisplay() {
             if (lockUntil > Date.now()) {
                 const remainingTime = Math.ceil((lockUntil - Date.now()) / 1000);
@@ -357,24 +340,19 @@
             }
         }
         
-        // Show message
         function showMessage(text, type) {
             messageEl.textContent = text;
             messageEl.className = 'message ' + type;
         }
         
-        // Biometric functions (simulated)
-        function isBiometricAvailable() {
-            // In a real app, you would check the Web Authentication API
-            return true;
+        function isBiometricAvailable() {            return true;
         }
         
         function useBiometric() {
             showMessage("Attempting biometric authentication...", '');
             
-            // Simulate biometric authentication
             setTimeout(() => {
-                if (Math.random() > 0.3) { // 70% success rate for demo
+                if (Math.random() > 0.3) { 
                     showMessage("Biometric authentication successful! Redirecting...", 'success');
                     
                     setTimeout(() => {
@@ -386,7 +364,6 @@
             }, 1500);
         }
         
-        // Allow pasting PIN (modern browsers)
         document.addEventListener('paste', (e) => {
             e.preventDefault();
             const pasteData = e.clipboardData.getData('text').trim();

@@ -198,14 +198,13 @@
       discountApplied = false;
     }
     
-    // Validasi voucher dan hitung diskon
     let discount = 0;
     let validVoucher = false;
     
-    // Daftar voucher yang valid
     const validVouchers = {
       'DISKON10': 0.1,  // Diskon 10%
-      'SUNDRESTO': 0.2  // Diskon 20%
+      'SUNDRESTO': 0.2,  // Diskon 20%
+      'SULTANGG' : 0.5   // Diskon 50% karna ganteng
     };
     
     if (validVouchers.hasOwnProperty(voucherCode)) {
@@ -214,29 +213,24 @@
     }
     
     if (validVoucher) {
-      // Hitung harga setelah diskon
       const discountedPrice = originalPrice * (1 - discount);
-      
-      // Tampilkan harga diskon
       discountedPriceElement.textContent = `Rp ${discountedPrice.toLocaleString('id-ID')}`;
       discountedPriceElement.style.display = 'inline';
       originalPriceElement.style.textDecoration = 'line-through';
       originalPriceElement.style.color = '#888';
       
-      // Simpan harga diskon
       document.getElementById('harga-diskon').value = discountedPrice;
       discountApplied = true;
       
       voucherMessage.textContent = `Kode voucher berhasil diterapkan! Diskon ${discount * 100}%`;
       voucherMessage.style.color = 'green';
     } else {
-      voucherMessage.textContent = 'Kode voucher tidak valid';
+      voucherMessage.textContent = 'Kode voucher tidak valid (clue nya:"SULTANGG")';
       voucherMessage.style.color = 'red';
     }
   }
 
   function bayar() {
-    // Validasi form
     const kecamatan = document.getElementById('kecamatan').value;
     const alamat = document.getElementById('alamat').value;
     const patokan = document.getElementById('patokan').value;
@@ -247,11 +241,9 @@
       return;
     }
 
-    // Simpan data pembayaran
     const voucher = document.getElementById('voucher').value;
     localStorage.setItem('metodeBayar', metodeBayar);
     
-    // Simpan harga yang sesuai (diskon atau asli)
     if (discountApplied) {
       const discountedPrice = document.getElementById('harga-diskon').value;
       localStorage.setItem('hargaMenu', discountedPrice);

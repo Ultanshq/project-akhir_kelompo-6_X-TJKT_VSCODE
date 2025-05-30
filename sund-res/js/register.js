@@ -30,7 +30,6 @@ document
 
         feather.replace();
         
-        // Navbar dropdown functionality
         const menuButton = document.getElementById('menu-button');
         const dropdown = document.getElementById('dropdown');
         
@@ -40,7 +39,6 @@ document
             dropdown.classList.toggle('show');
           });
           
-          // Close dropdown when clicking outside
           document.addEventListener('click', function(e) {
             if (!menuButton.contains(e.target) && !dropdown.contains(e.target)) {
               dropdown.classList.remove('show');
