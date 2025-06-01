@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/prolom.css" />
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="icon" href="./bahan-navbar/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   </head>
   <body>
      <nav class="navbar">
@@ -33,7 +34,7 @@
     <a href="landing-page.html"><i data-feather="log-out"></i> Keluar</a>
   </div>
 </nav>
- <div class="login-recommendation">
+ <div class="login-recommendation animate__animated animate__fadeInDown">
   <div class="recommendation-content">
     <span class="close-recommendation">&times;</span>
     <p>Dapatkan akses penuh dengan login atau daftar sekarang!</p>
@@ -41,17 +42,30 @@
       <a href="./login.html" class="btn-login">Masuk</a>
       <a href="./register.html" class="btn-register">Daftar</a>
     </div>
-  </div>
+  </div>
 </div>
-    <section class="profile-container">
-      <div class="profile-card">
-        <img
-          src="./dashboard/imgprofil/Foto profil wa kosong.jpg"
-          alt="Foto Profil"
-          class="profile-img"
-        />
-        <h2><a href="./login.html">login</a> terlebih dahulu</h2>
+<section class="profile-container">
+      <div class="profile-card animate__animated animate__fadeInUp">
         
+        <div class="profile-illustration">
+          <img 
+            src="./css/img/Mobile login-bro.png" 
+            alt="Ilustrasi Profil Kosong" 
+            class="storyset-image"
+          >
+        </div>
+        
+        <h2>Login untuk mengakses profil</h2>
+        <p class="profile-description">Bergabunglah dengan komunitas kami untuk menikmati fitur lengkap dan penawaran eksklusif</p>
+        
+        <div class="profile-actions">
+          <a href="./login.html" class="profile-btn primary">
+            <i data-feather="log-in"></i> Masuk Sekarang
+          </a>
+          <a href="./register.html" class="profile-btn secondary">
+            <i data-feather="user-plus"></i> Buat Akun Baru
+          </a>
+        </div>
       </div>
     </section>
 <footer class="footer">
@@ -83,7 +97,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     feather.replace();
-  });
+  });
 </script>
     <script src="./js/menu-nolog.js"></script>
   </body>
